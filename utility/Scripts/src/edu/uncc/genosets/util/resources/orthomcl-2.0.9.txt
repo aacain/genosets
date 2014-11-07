@@ -1,0 +1,10 @@
+mysql -uuncc -puncc -e "CREATE DATABASE %%databaseName%%"
+orthomclInstallSchema %%config_file%% %%outDirectory%%install_schema.log
+orthomclFilterFasta %%fastaDirectory%% 10 20
+orthomclBlastParser %%blastFile%% %%fastaDirectory%% > %%outDirectory%%similarSequences.txt
+
+orthomclLoadBlast %%config_file%% similarSequences.txt
+orthomclPairs %%config_file%% %%outDirectory%%orthomcl_pairs.log cleanup=%%cleanup%%
+orthomclDumpPairsFiles config_file
+mcl mclInput --abc -I 1.5 -o mclOutput
+orthomclMclToGroups my_prefix 1000 < mclOutput > groups.txt

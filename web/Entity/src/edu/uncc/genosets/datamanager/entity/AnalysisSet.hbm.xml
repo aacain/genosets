@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="AnalysisSet" name="edu.uncc.genosets.datamanager.entity.AnalysisSet" table="analysisset">
+        <id name="analysisSetId" type="java.lang.Integer">
+            <column name="AnalysisSetId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">9</param>
+            </generator>
+        </id>
+        
+        <property name="setType" type="string">
+            <column name="SetType"/>
+        </property>
+        
+        <property name="setName" type="string">
+            <column name="SetName"/>
+        </property>
+        
+        <property name="setDescription" type="string">
+            <column name="SetDescription"/>
+        </property>
+        
+        <property name="loadDate" type="timestamp">
+            <column name="LoadDate" length="19" />
+        </property>
+        
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="AssembledUnit" name="edu.uncc.genosets.datamanager.entity.AssembledUnit" table="assembled_unit">
+        <id name="assembledUnitId" type="java.lang.Integer">
+            <column name="AssembledUnitId" sql-type="int unsigned" />
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <many-to-one name="organism" entity-name="Organism" fetch="select">
+            <column name="Organism" sql-type="int unsigned"/>
+        </many-to-one>
+        
+        <property name="organismId" type="java.lang.Integer" insert="false" update="false">
+            <column name="Organism"/>
+        </property>
+
+        <many-to-one name="molecularSequence" entity-name="MolecularSequence" fetch="select">
+            <column name="MolecularSequence"  sql-type="int unsigned" />
+        </many-to-one>
+
+        <property name="molecularSequenceId" type="java.lang.Integer" insert="false" update="false">
+            <column name="MolecularSequence"/>
+        </property>
+
+        <property name="assembledUnitName" type="string">
+            <column name="AssembledUnitName" />
+        </property>
+        <property name="accessionVersion" type="string">
+            <column name="AccessionVersion" />
+        </property>
+        <property name="sequenceLength" type="java.lang.Integer">
+            <column name="SequenceLength" />
+        </property>
+        <property name="assembledUnitType" type="string">
+            <column name="AssembledUnitType" length="127" />
+        </property>
+        <property name="replicatingUnitType" type="string">
+            <column name="ReplicatingUnitType" />
+        </property>
+        <property name="repUnitName" type="string">
+            <column name="RepUnitName" />
+        </property>
+        <property name="assembledUnitLength" type="java.lang.Integer">
+            <column name="AssembledUnitLength" />
+        </property>
+ 
+    </class>
+</hibernate-mapping>

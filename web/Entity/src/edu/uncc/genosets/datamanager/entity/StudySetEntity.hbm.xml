@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="StudySetEntity" name="edu.uncc.genosets.datamanager.entity.StudySetEntity" table="studyset">
+        <id name="studySetId" type="java.lang.Integer">
+            <column name="StudySetId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">9</param>
+            </generator>
+        </id>
+
+        <property name="entityTable" type="string">
+            <column name="EntityTable"/>
+        </property>
+        
+        <property name="studySetName" type="string">
+            <column name="studySetName"/>
+        </property>
+        
+        <property name="studySetDescription" type="string">
+            <column name="studySetDescription"/>
+        </property>
+        
+        <property name="loadDate" type="timestamp">
+            <column name="LoadDate" length="19" />
+        </property>
+        
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+        
+        <set name="idSet" table="fact_studyset">
+            <key column="StudySetId"/>
+            <element type="integer" column="EntityId"/>
+        </set>
+        
+        <set name="factStudySets" inverse="false" cascade="none">
+            <key>
+                <column name="StudySetId"  sql-type="int unsigned" not-null="true"/>
+            </key>
+            <one-to-many entity-name="FactStudySet" />
+        </set>
+        
+
+    </class>
+</hibernate-mapping>

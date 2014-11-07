@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.axis4
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/axis4/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

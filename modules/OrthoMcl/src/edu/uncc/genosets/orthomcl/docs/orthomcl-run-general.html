@@ -1,0 +1,71 @@
+<html>
+
+    <head>
+        <title>Run OrthoMCL</title>
+        <link href="nbdocs:/org/netbeans/modules/usersguide/ide.css" rel="stylesheet" type="text/css">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    </head>
+
+    <body>
+
+        <h2>Running OrthoMCL</h2>
+    	<p>GenoSets helps to create all the files necessary to run OrthoMCL on a 
+		given set of genes.</p>
+		<p>To create a new OrthoMCL download set:</p>
+		<ul>
+			<li>Open the Download window.<br></li>
+			<li>Create a new Download set of type Annotations.<br></li>
+			<li>Add all of the annotation files to include in the run of 
+			OrthoMCL. You can do this by dragging annotation files from the 
+			Project window into the download set.<br></li>
+			<li>Right-click the File Formats Node and select New File Type.<br>
+			</li>
+			<li>Select OrthoMCL as the new file type to start the OrthoMCL 
+			wizard.</li>
+		</ul>
+		<p>Wizard Settings:</p>
+		<ul>
+			<li><A HREF="#pathVariables">Path Variables:</a><p>The path variables must be set for the perl 
+			bin folder, the orthoMCL bin folder, and the MCL bin folder. The 
+			script file can be created local but run on a different machine. 
+			Make sure the path variables are for the machine that is to run the 
+			script.</p>
+			<p>If the location of perl is /usr/bin/perl,&nbsp; then the perl bin 
+			should be set to:</p>
+			<p>&nbsp;/usr/bin/</p>
+			<p>If the OrthoMCL script orthomclInstallSchema (along with the 
+			other orthomcl files) is located at 
+			/usr/orthomcl/bin/orthomclInstallSchema, the the orthomcl bin should 
+			be set to:</p>
+			<p>/usr/orthomcl/bin/</p>
+			<p>If MCL is located at /usr/bin/mcl, the the MCL bin path should be 
+			set to:</p>
+			<p>/usr/bin/</p>
+			</li>
+			<li>BLAST Settings:<p>The settings for the BLAST run can be set in 
+			the BLAST Settings wizard step. The output format must be set to 
+			tab-delimeted (-outfmt 6 for NCBI BLAST) and the name of the BLAST 
+			output file should be blast.out.<br></p>
+			</li>
+		</ul>
+		<ul>
+			<li>Database Settings:<p>OrthoMCL requires an instance of Mysql or 
+			Oracle. The database user must have adequate priveleges. See 
+			OrthoMCL documentation for more information.</p>
+			</li>
+		</ul>
+		<ul>
+			<li>OrthoMCL Setting:<p>The OrthoMCL settings can be set in the 
+			final step of the wizard. For more information on OrthoMCL settings 
+			see OrthoMCL documentation.<br>Selecting Finish will add the 
+			download format to the download set. The files will not be 
+			downloaded until the user selects download from the context menu 
+			that is available from right-clicking the download set.When 
+			downloaded a number of files will be saved on the local machine 
+			including a folder named fasta that contains all the fasta files, a 
+			config_file, and a script file (runOrthomcl.sh or runOrthomcl.bat).</p>
+			</li>
+		</ul>
+    </body>
+
+</html>

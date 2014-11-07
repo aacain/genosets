@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="FactStudySet" name="edu.uncc.genosets.datamanager.entity.FactStudySet" table="fact_studyset">
+        <id name="factId" type="java.lang.Integer">
+            <column name="FactId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">99</param>
+            </generator>
+        </id>
+        
+        
+        <property name="studySetId" type="java.lang.Integer" >
+            <column name="StudySetId"/>
+        </property>
+        
+        <property name="entityId" type="java.lang.Integer">
+            <column name="EntityId"/>
+        </property>
+             
+    </class>
+    
+</hibernate-mapping>

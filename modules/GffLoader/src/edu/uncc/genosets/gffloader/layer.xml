@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="DownloadFormat">
+        <file name="edu-uncc-genosets-gffloader-download-AnnoGffFormat.instance"/>
+    </folder>
+    <folder name="Templates">
+        <folder name="Load">
+            <folder name="GFF">
+                <file name="Generic Feature Format Version 3 (GFF3)">
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.gffloader.Bundle#LoadFiles/AnnotationFile"/>
+                    <attr name="instantiatingIterator" newvalue="edu.uncc.genosets.gffloader.GffWizardWizardIterator"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/gffloader/WizardLoad.html"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

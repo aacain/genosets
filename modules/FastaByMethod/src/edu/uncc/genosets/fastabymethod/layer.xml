@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Test">
+            <file name="edu-uncc-genosets-fastabymethod-actions-RunFasta.instance">
+                <attr name="delegate" newvalue="edu.uncc.genosets.fastabymethod.actions.RunFasta"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.fastabymethod.actions.Bundle#CTL_RunFasta"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Add Data">
+            <file name="edu-uncc-genosets-fastabymethod-actions-RunFasta.shadow">
+                <attr name="originalFile" stringvalue="Actions/Test/edu-uncc-genosets-fastabymethod-actions-RunFasta.instance"/>
+                <attr name="position" intvalue="1000"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.datamanager
+OpenIDE-Module-Install: edu/uncc/genosets/datamanager/api/Installer.class
+OpenIDE-Module-Layer: edu/uncc/genosets/datamanager/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/datamanager/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.7
+

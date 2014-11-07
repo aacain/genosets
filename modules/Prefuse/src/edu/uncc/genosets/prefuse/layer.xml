@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="edu-uncc-genosets-prefuse-demos-GoGraphAction.instance">
+                <attr name="component" methodvalue="edu.uncc.genosets.prefuse.demos.GoGraphTopComponent.findInstance"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.prefuse.demos.Bundle#CTL_GoGraphAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Window"/>
+    </folder>
+    <folder name="Windows2">
+    </folder>
+</filesystem>

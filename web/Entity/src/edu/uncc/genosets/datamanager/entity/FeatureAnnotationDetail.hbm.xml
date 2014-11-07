@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="FeatureAnnotationDetail" name="edu.uncc.genosets.datamanager.entity.FeatureAnnotationDetail" table="feature_annotation_detail">
+        <id name="featureAnnotationDetailId" type="java.lang.Integer">
+            <column name="FeatureAnnotationDetailId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <many-to-one name="organism" entity-name="Organism" fetch="select" insert="false" update="false">
+            <column name="Organism"  sql-type="int unsigned" />
+        </many-to-one>
+        <property name="organismId" type="java.lang.Integer" index="OrganismIndex">
+            <column name="Organism"/>
+        </property>
+        <many-to-one name="featureAnnotation" entity-name="FeatureAnnotation" fetch="select" insert="false" update="false">
+            <column name="FeatureAnnotation"  sql-type="int unsigned" />
+        </many-to-one>
+        <property name="featureAnnotationId" type="java.lang.Integer">
+            <column name="FeatureAnnotation"/>
+        </property>
+        <many-to-one name="feature" entity-name="Feature" fetch="select" insert="false" update="false">
+            <column name="Feature"  sql-type="int unsigned" />
+        </many-to-one>
+        <property name="featureId" type="java.lang.Integer">
+            <column name="Feature"/>
+        </property>
+        <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select" insert="false" update="false">
+            <column name="AnnotationMethod"  sql-type="int unsigned" />
+        </many-to-one>
+        <property name="annotationMethodId" type="java.lang.Integer">
+            <column name="AnnotationMethod"/>
+        </property>
+        <many-to-one name="featureDetailType" entity-name="FeatureDetailType" fetch="select" insert="false" update="false">
+            <column name="FeatureDetailType" sql-type="int unsigned"  />
+        </many-to-one>
+        <many-to-one name="assembledUnit" entity-name="AssembledUnit" fetch="select" insert="false" update="false">
+            <column name="AssembledUnit"  sql-type="int unsigned" />
+        </many-to-one>
+        <property name="assembledUnitId" type="java.lang.Integer">
+            <column name="AssembledUnit"/>
+        </property>
+        <property name="numberOfDetailsCategoryPerFeature" type="java.lang.Integer">
+            <column name="NumberOfDetailsCategoryPerFeature"  sql-type="int unsigned" />
+        </property>
+        <property name="numberOfDetailTypePerFeature" type="java.lang.Integer">
+            <column name="NumberOfDetailTypePerFeature"  sql-type="int unsigned" />
+        </property>
+        <property name="detailValue" type="string">
+            <column name="DetailValue" length="511" />
+        </property>
+    </class>
+</hibernate-mapping>

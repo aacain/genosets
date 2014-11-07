@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="lucy (generated)" id="1372352190900-1">
+        <createTable tableName="file">
+            <column name="FileId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="FileName" type="varchar(255)"/>
+            <column name="FileExtension" type="varchar(255)"/>
+            <column name="FileType" type="varchar(20)"/>
+            <column name="FileContent" type="LONGBLOB"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

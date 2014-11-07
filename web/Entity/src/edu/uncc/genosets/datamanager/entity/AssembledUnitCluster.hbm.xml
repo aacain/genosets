@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="AssembledUnitCluster" name="edu.uncc.genosets.datamanager.entity.AssembledUnitCluster" table="assembled_unit_cluster">
+        <id name="assembledUnitClusterId" type="java.lang.Integer">
+            <column name="AssembledUnitClusterId" sql-type="int unsigned" />
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <property name="clusterCategory" type="string">
+            <column name="ClusterCategory" />
+        </property>
+        <property name="clusterType" type="string">
+            <column name="ClusterType" />
+        </property>
+        <property name="clusterName" type="string">
+            <column name="ClusterName" />
+        </property>
+        <property name="totalAssembledUnitInCluster" type="java.lang.Integer">
+            <column name="TotalAssembledUnitInCluster" />
+        </property>
+    </class>
+</hibernate-mapping>

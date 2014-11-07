@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="ProteinSequence" name="edu.uncc.genosets.datamanager.entity.MolecularSequence" table="feature_sequence">
+        <id name="molecularSequenceId" type="java.lang.Integer">
+            <column name="MolecularSequenceId" sql-type="int unsigned"/>
+            <generator class="assigned" />
+        </id>
+        <property name="sequenceType" type="string">
+            <column name="SequenceType" />
+        </property>
+        <property name="forwardSequence" type="string">
+            <column name="ForwardSequence" sql-type="LONGTEXT"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

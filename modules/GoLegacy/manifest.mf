@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.golegacy
+OpenIDE-Module-Layer: edu/uncc/genosets/golegacy/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/golegacy/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

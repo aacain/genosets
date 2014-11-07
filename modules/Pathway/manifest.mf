@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.pathway
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/pathway/Bundle.properties
+OpenIDE-Module-Layer: edu/uncc/genosets/pathway/layer.xml
+OpenIDE-Module-Requires: org.openide.windows.WindowManager
+OpenIDE-Module-Specification-Version: 1.0
+

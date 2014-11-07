@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.graphview
+OpenIDE-Module-Layer: edu/uncc/genosets/graphview/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/graphview/Bundle.properties
+OpenIDE-Module-Requires: org.openide.windows.WindowManager
+OpenIDE-Module-Specification-Version: 1.1
+

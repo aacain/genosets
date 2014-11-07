@@ -1,0 +1,44 @@
+<html>
+
+    <head>
+        <title>Loading OrthoMCL Files</title>
+        <link href="nbdocs:/org/netbeans/modules/usersguide/ide.css" rel="stylesheet" type="text/css">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    </head>
+
+                <body>
+                    <h2>Loading OrthoMCL Files</h2>
+                    <p>Use the Load Data Wizard to load OrthoMCL files.</p>
+                    <p>The user can select the cluster file (usually named groups.txt) and a 
+                        directory containing all the FASTA files used in the analysis.&nbsp; The FASTA 
+                        files are needed to determine singleton clusters as these are not included in 
+                        the cluster file.&nbsp; The FASTA files must have the extension .faa or .fasta 
+                        (case-insensitive).</p>
+                    <p>The cluster file is in the format below:</p>
+                    <pre class="java">my_prefix_clusterId: taxon|geneId taxon|geneId </pre>
+                    <p>Example:</p>
+
+                    <pre class="java">
+my_prefix1000: 0000|4754 0000|5234 0000|24024 0000|25815 0000|25426 0000|25239 0000|25030 0000|24933 0000|24688 0000|24502 0000|24128
+my_prefix1001: 0001|3754 0001|4314 0000|24023 0000|25816 0000|24751 0000|24129 0000|25029
+my_prefix1002: 0001|17613 0001|19129 0001|3755 0000|24752 0000|24878
+my_prefix1003: 0001|4303 0001|4304 0000|4726 0000|4728
+my_prefix1004: 0001|17868 0001|20453 0000|24252 0000|25041
+my_prefix1005: 0001|17876 0001|20974 0000|24261 0000|25309
+my_prefix1006: 0001|20765 0001|20798 0000|25193 0000|25207
+my_prefix1007: 0001|22287 0001|4322 0000|25831 0000|4712
+my_prefix1008: 0000|24283 0000|4335 0001|4610 0001|17915
+my_prefix1009: 0001|17615 0001|20180 0001|19135
+my_prefix1010: 0001|17866 0001|20455 0000|25042
+my_prefix1011: 0000|24249 0000|25040 0000|24253
+my_prefix1012: 0001|21655 0001|22222 0001|4981
+my_prefix1013: 0000|24255 0000|5495 0001|17835
+my_prefix1014: 0000|25948 0001|22464 0001|22465
+my_prefix1015: 0001|20178 0001|20270
+my_prefix1016: 0000|25016 0000|3917
+                    </pre>
+
+
+                </body>
+
+                </html>

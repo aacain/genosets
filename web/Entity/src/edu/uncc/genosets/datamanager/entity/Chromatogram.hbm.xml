@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="Chromatogram" name="edu.uncc.genosets.datamanager.entity.Chromatogram" table="chromatogram" >
+        <id name="chromatogramId" type="java.lang.Integer">
+            <column name="ChromatogramId" sql-type="int unsigned" />
+             <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <set name="basecallingAnnotations" inverse="true">
+            <key>
+                <column name="Chromatogram"  sql-type="int unsigned" />
+            </key>
+            <one-to-many entity-name="BasecallingAnnotation" />
+        </set>
+    </class>
+</hibernate-mapping>

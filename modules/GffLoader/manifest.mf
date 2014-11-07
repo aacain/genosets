@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.gffloader
+OpenIDE-Module-Layer: edu/uncc/genosets/gffloader/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/gffloader/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.2
+

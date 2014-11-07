@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="lucy (generated)" id="1372352190801-1">
+        <addColumn tableName="fact_location_annofact_detail">
+            <column name="Location" type="INT UNSIGNED"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190801-2">
+        <sql endDelimiter="\n"
+             splitStatements="true"
+             stripComments="true">update fact_location_annofact_detail, fact_location_anno_fact set fact_location_annofact_detail.Location = fact_location_anno_fact.Location WHERE fact_location_annofact_detail.ParentFact = fact_location_anno_fact.FactId
+            <comment>Update fact details to include location from parent fact.</comment>
+        </sql>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190801-3">
+        <sql>UPDATE fact_location_annofact_detail, fact_location_anno_fact SET fact_location_annofact_detail.Location = fact_location_anno_fact.Location WHERE fact_location_annofact_detail.ParentFact = fact_location_anno_fact.FactId;</sql>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190801-4">
+        <sql>SELECT Location FROM fact_location_annofact_detail</sql>
+    </changeSet>
+</databaseChangeLog>

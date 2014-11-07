@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="FeatureClusterByOrganism" name="edu.uncc.genosets.datamanager.entity.FeatureClusterByOrganism" table="feature_cluster_by_organism">
+        <id name="featureClusterByOrganismId" type="java.lang.Integer">
+            <column name="FeatureClusterByOrganismId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <many-to-one name="organismByOrganism" entity-name="Organism" fetch="select">
+            <column name="Organism"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="feature" entity-name="Feature" fetch="select">
+            <column name="Feature"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="featureCluster" entity-name="FeatureCluster" fetch="select">
+            <column name="FeatureCluster"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select">
+            <column name="AnnotationMethod"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="assembledUnit" entity-name="AssembledUnit" fetch="select">
+            <column name="AssembledUnit" sql-type="int unsigned"  />
+        </many-to-one>
+        <many-to-one name="organismByComparedOrganism" entity-name="Organism" fetch="select">
+            <column name="ComparedOrganism"  sql-type="int unsigned" />
+        </many-to-one>
+        <property name="countByOrganism" type="java.lang.Integer">
+            <column name="CountByOrganism"  sql-type="int unsigned" />
+        </property>
+        <property name="countByFeatureOrganism" type="java.lang.Integer">
+            <column name="CountByFeatureOrganism"  sql-type="int unsigned" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="lucy (generated)" id="1372352190709-1">
+        <createTable tableName="studyset">
+            <column name="StudySetId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="EntityId" type="INT UNSIGNED"/>
+            <column name="EntityTable" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190709-2">
+        <createIndex indexName="index1" tableName="studyset" unique="false">
+            <column name="EntityId"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

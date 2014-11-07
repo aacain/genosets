@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="PathwayFact" name="edu.uncc.genosets.datamanager.entity.FactLocation" table="fact_location_pathway_fact">
+        <id name="factId" type="java.lang.Integer">
+            <column name="FactId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+
+        <property name="organismId" type="java.lang.Integer" index="OrganismIndex">
+            <column name="Organism"/>
+        </property>
+
+        <property name="assembledUnitId" type="java.lang.Integer" index="AssembledUnitIndex">
+            <column name="AssembledUnit"/>
+        </property>
+
+        <property name="featureId" type="java.lang.Integer" index="FeatureIndex">
+            <column name="Feature"/>
+        </property>
+        
+        <property name="featureClusterId" type="java.lang.Integer" index="FeatureClusterIndex">
+            <column name="FeatureCluster" sql-type="int unsigned"/>
+        </property>
+        <property name="annotationMethodId" type="java.lang.Integer" index="AnnotationMethodIndex">
+            <column name="AnnotationMethod" sql-type="int unsigned"/>
+        </property>
+        <property name="locationId" type="java.lang.Integer">
+            <column name="Location" sql-type="int unsigned"/>
+        </property>
+
+        <many-to-one name="featureCluster" entity-name="ClusterPathway" fetch="select" insert="false" update="false">
+            <column name="FeatureCluster"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select" insert="false" update="false">
+            <column name="AnnotationMethod" sql-type="int unsigned"  />
+        </many-to-one>
+
+        <many-to-one name="organism" entity-name="Organism" fetch="select" insert="false" update="false">
+            <column name="Organism"  sql-type="int unsigned" />
+        </many-to-one>
+
+        <many-to-one name="assembledUnit" entity-name="AssembledUnit" fetch="select" insert="false" update="false">
+            <column name="AssembledUnit"  sql-type="int unsigned" />
+        </many-to-one>
+
+        <many-to-one name="location" entity-name="Location" fetch="select" insert="false" update="false">
+            <column name="Location"  sql-type="int unsigned" />
+        </many-to-one>
+
+    </class>
+    
+</hibernate-mapping>

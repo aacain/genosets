@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:security="http://www.springframework.org/schema/security"
+        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+                      
+    <security:http realm="SpringWeb App">
+        <security:http-basic/>
+        <security:intercept-url pattern="/testService.service" access="ROLE_VISITOR"/>
+        <!--
+        <security:intercept-url pattern="/resources/**" access="ROLE_VISITOR"/>-->
+    </security:http>
+
+	<!--Loads ACL related configurations-->
+          <!-- Declare a datasource -->
+    <bean id="userDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost/acl"/>
+        <property name="user" value="uncc"/>
+        <property name="password" value="uncc"/>
+        <property name="acquireIncrement" value="5"/>
+        <property name="idleConnectionTestPeriod" value="60"/>
+        <property name="maxPoolSize" value="100"/>
+        <property name="maxStatements" value="50"/>
+        <property name="minPoolSize" value="10"/>
+    </bean>
+   
+        
+        <!-- To enable Method Security Expressions and custom PermissionEvaluator
+		we need to add the following -->
+    <security:global-method-security pre-post-annotations="enabled">
+        <security:expression-handler ref="expressionHandler" />
+    </security:global-method-security>
+
+
+ <!-- See 15.3.2 Built-In Expression @http://static.springsource.org/spring-security/site/docs/3.0.x/reference/el-access.html#el-permission-evaluator -->
+    <bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+  <!-- To use hasPermission() in expressions, configure a PermissionEvaluator -->
+        <property name="permissionEvaluator" ref="permissionEvaluator" />
+        <property name = "roleHierarchy" ref="roleHierarchy"/>
+    </bean>
+  
+ 
+<!--    Declare a custom PermissionEvaluator
+  We'll rely on the standard AclPermissionEvaluator implementation -->
+    <bean class="org.springframework.security.acls.AclPermissionEvaluator" id="permissionEvaluator">
+        <constructor-arg ref="aclService"/>
+    </bean>
+ 
+<!--  Declare an acl service -->
+    <bean class="org.springframework.security.acls.jdbc.JdbcMutableAclService" id="aclService">
+        <constructor-arg ref="userDataSource"/>
+        <constructor-arg ref="lookupStrategy"/>
+        <constructor-arg ref="aclCache"/>
+    </bean>
+  
+<!--  Declare a lookup strategy-->
+    <bean id="lookupStrategy" class="org.springframework.security.acls.jdbc.BasicLookupStrategy">
+        <constructor-arg ref="userDataSource"/>
+        <constructor-arg ref="aclCache"/>
+        <constructor-arg ref="aclAuthorizationStrategy"/>
+        <constructor-arg ref="auditLogger"/>
+    </bean>
+    
+       <!-- Declare an acl cache-->  
+    <bean id="aclCache" class="org.springframework.security.acls.domain.EhCacheBasedAclCache">
+        <constructor-arg>
+            <bean class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+                <property name="cacheManager">
+                    <bean class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"/>
+                </property>
+                <property name="cacheName" value="aclCache"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+ 
+ <!-- Declare an acl authorization strategy-->
+    <bean id="aclAuthorizationStrategy" class="org.springframework.security.acls.domain.AclAuthorizationStrategyImpl">
+        <constructor-arg>
+            <list>
+                <bean class="org.springframework.security.core.authority.GrantedAuthorityImpl">
+                    <constructor-arg value="ROLE_ADMIN"/>
+                </bean>
+                <bean class="org.springframework.security.core.authority.GrantedAuthorityImpl">
+                    <constructor-arg value="ROLE_ADMIN"/>
+                </bean>
+                <bean class="org.springframework.security.core.authority.GrantedAuthorityImpl">
+                    <constructor-arg value="ROLE_ADMIN"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+  
+  <!-- Declare an audit logger-->
+    <bean id="auditLogger" class="org.springframework.security.acls.domain.ConsoleAuditLogger"/>
+    
+  
+<!--	 This is where we configure Spring-Security  -->
+<!--    <security:http auto-config="true" use-expressions="true" access-denied-page="/genosets/auth/denied" >
+	
+        <security:intercept-url pattern="/genosets/auth/login" access="permitAll"/>
+		
+        <security:form-login
+            login-page="/genosets/auth/login" 
+            authentication-failure-url="/genosets/auth/login?error=true" 
+            default-target-url="/genosets/all/view"/>
+			
+        <security:logout 
+            invalidate-session="true" 
+            logout-success-url="/genosets/auth/login" 
+            logout-url="/genosets/auth/logout"/>
+	
+    </security:http>-->  
+    
+    <bean id="digestProcessingFilter"
+          class="org.springframework.security.web.authentication.www.DigestAuthenticationFilter">
+        <property name="userDetailsService" ref="userDetailsService" />
+        <property name="authenticationEntryPoint"
+                  ref="digestProcessingFilterEntryPoint" />
+    </bean>
+
+    <bean id="digestProcessingFilterEntryPoint"
+          class="org.springframework.security.web.authentication.www.DigestAuthenticationEntryPoint">
+        <property name="realmName" value="ThisIsTheDigestRealm" />
+        <property name="key" value="acegi" />
+        <property name="nonceValiditySeconds" value="10" />
+    </bean>
+
+    <bean id="springSecurityFilterChain"
+          class="org.springframework.security.web.FilterChainProxy">
+        <security:filter-chain-map path-type="ant">
+            <security:filter-chain pattern="/**"
+                                   filters="httpSessionContextIntegrationFilter,digestProcessingFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
+        </security:filter-chain-map>
+    </bean>
+
+    <bean id="httpSessionContextIntegrationFilter"
+          class="org.springframework.security.web.context.HttpSessionContextIntegrationFilter" />
+    <bean id="accessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
+        <property name="decisionVoters">
+            <list>
+
+                <bean class="org.springframework.security.access.vote.RoleVoter" />
+                <bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="exceptionTranslationFilter"  class="org.springframework.security.web.access.ExceptionTranslationFilter">
+        <property name="authenticationEntryPoint"
+                  ref="digestProcessingFilterEntryPoint" />
+    </bean>
+    
+    
+    <!-- Use a Md5 encoder since the user's passwords are stored as Md5 in the database -->
+    <bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" id="passwordEncoder"/>
+	
+    <!-- Declare an authentication-manager to use a custom userDetailsService -->        
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="userDataSource"
+            
+                                        users-by-username-query="
+		      select username,password, enabled 
+		      from users where username=?" 
+ 
+                                        authorities-by-username-query="
+		      select u.username, ur.authority from users u, user_roles ur 
+		      where u.user_id = ur.user_id and u.username =?  " 
+            />
+            <security:password-encoder ref="passwordEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+    
+    <bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <property name="dataSource" ref="userDataSource"/>
+    </bean>
+    
+    <!--	  An in-memory list of users. No need to access an external database layer.
+                        See Spring Security 3.1 Reference 5.2.1 In-Memory Authentication 
+              john's password: admin
+                            jane's password: user
+                            mike's password: visitor  
+    --> 
+    <!--    <security:user-service id="userDetailsService">
+        <security:user name="john" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_ADMIN" />
+        <security:user name="jane" password="ee11cbb19052e40b07aac0ca060c23ee" authorities="ROLE_USER" />
+        <security:user name="mike" password="127870930d65c57ee65fcc47f2170d38" authorities="ROLE_VISITOR" />
+    </security:user-service>-->
+	
+    <!-- http://static.springsource.org/spring-security/site/docs/3.0.x/apidocs/org/springframework/security/access/hierarchicalroles/RoleHierarchyImpl.html -->
+    <bean id="roleHierarchy"  class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
+        <property name="hierarchy">
+            <value>
+                ROLE_ADMIN > ROLE_USER
+                ROLE_USER > ROLE_VISITOR
+            </value>
+        </property>
+    </bean>
+	
+</beans>

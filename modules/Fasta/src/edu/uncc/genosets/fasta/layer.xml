@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>    
+    <folder name="Templates">
+        <folder name="Downloads">
+            <folder name="Location">
+                <file name="edu-uncc-genosets-fasta-download-LocationFastaDownloadIterator.instance">
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.fasta.download.Bundle#LocationFastaDownloadIterator_displayName"/>
+                    <attr name="instantiatingIterator" newvalue="edu.uncc.genosets.fasta.download.LocationFastaDownloadIterator"/>
+                    <attr name="SystemFileSystem.icon" urlvalue="nbresloc:edu/uncc/genosets/icons/download.png"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/fasta/download/FastaLocation.html"/>
+                </file>
+            </folder>
+            <folder name="AssembledUnit">
+                <file name="edu-uncc-genosets-fasta-download-NucleotideFastaDownloadIterator.instance">
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.fasta.download.Bundle#NucleotideFastaDownloadIterator_displayName"/>
+                    <attr name="instantiatingIterator" newvalue="edu.uncc.genosets.fasta.download.NucleotideFastaDownloadIterator"/>
+                    <attr name="SystemFileSystem.icon" urlvalue="nbresloc:edu/uncc/genosets/icons/download.png"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/fasta/download/FastaLocation.html"/>
+                </file>
+            </folder>
+            <folder name="Organism">
+                <file name="NucleotideFasta.shadow">
+                    <attr name="originalFile" stringvalue="Templates/Downloads/AssembledUnit/edu-uncc-genosets-fasta-download-NucleotideFastaDownloadIterator.instance"/>
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.fasta.download.Bundle#NucleotideFastaDownloadIterator_displayName"/>
+                    <attr name="SystemFileSystem.icon" urlvalue="nbresloc:edu/uncc/genosets/icons/download.png"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/fasta/download/FastaFeature.html"/>
+                </file>
+            </folder>
+            <folder name="Feature">
+                <file name="FastaFeature.shadow">
+                    <attr name="originalFile" stringvalue="Templates/Downloads/Location/edu-uncc-genosets-fasta-download-LocationFastaDownloadIterator.instance"/>
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.fasta.download.Bundle#LocationFastaDownloadIterator_displayName"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/fasta/download/FastaFeature.html"/>
+                </file>
+            </folder>
+        </folder>
+        <folder name="Load">
+            <folder name="FASTA Nucleotide">
+                <file name="edu-uncc-genosets-fasta-load-FastaNucleotideWizardIterator.instance">
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.fasta.load.Bundle#LoadFiles/AnnotationFile"/>
+                    <attr name="instantiatingIterator" newvalue="edu.uncc.genosets.fasta.load.FastaNucleotideWizardIterator"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/fasta/load/WizardLoad.html"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

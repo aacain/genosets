@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="DownloadSet">
+        <folder name="Nodes">
+            <folder name="Actions">
+                <file name="sep-1.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="2000"/>
+                </file>
+                <file name="org-openide-actions-DeleteAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+                    <attr name="position" intvalue="2200"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

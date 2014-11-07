@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="SeqRead" name="edu.uncc.genosets.datamanager.entity.SeqRead" table="seq_read">
+        <id name="seqReadId" type="java.lang.Integer">
+            <column name="SeqReadId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <property name="organism" type="java.lang.Integer">
+            <column name="Organism"  sql-type="int unsigned" />
+        </property>
+        <property name="molecularSequence" type="java.lang.Integer">
+            <column name="MolecularSequence"  sql-type="int unsigned" />
+        </property>
+        <property name="readType" type="string">
+            <column name="ReadType" />
+        </property>
+        <property name="readName" type="string">
+            <column name="ReadName" />
+        </property>
+        <property name="readLength" type="java.lang.Integer">
+            <column name="ReadLength"  sql-type="int unsigned" />
+        </property>
+        <set name="readAssemblies" inverse="true">
+            <key>
+                <column name="Seq_Read"  sql-type="int unsigned" />
+            </key>
+            <one-to-many entity-name="ReadAssembly" />
+        </set>
+        <set name="basecallingAnnotations" inverse="true">
+            <key>
+                <column name="SeqRead"  sql-type="int unsigned" />
+            </key>
+            <one-to-many entity-name="BasecallingAnnotation" />
+        </set>
+    </class>
+</hibernate-mapping>

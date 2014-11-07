@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="Cluster_GoTerm" name="edu.uncc.genosets.datamanager.entity.FeatureCluster" table="cluster_go_term">
+        <id name="featureClusterId" type="java.lang.Integer">
+            <column name="FeatureClusterId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <property name="clusterCategory" type="string">
+            <column name="ClusterCategory" />
+        </property>
+        <property name="clusterType" type="string">
+            <column name="ClusterType" />
+        </property>
+        <property name="clusterName" type="string">
+            <column name="ClusterName" />
+        </property>
+
+        <dynamic-component name="customProperties">
+            <property name="goName" column="goName" type="string"/>
+        </dynamic-component>
+
+    </class>
+</hibernate-mapping>

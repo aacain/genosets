@@ -1,0 +1,4 @@
+liquibase --driver=com.mysql.jdbc.Driver --classpath=\Users\lucy\Documents\NetBeansProjects\libraries\mysql-connector-java-5.1.22-bin.jar --changeLogFile=db.changelog.xml --url="jdbc:mysql://localhost:3306/vibrio_test" --username=uncc --password=uncc generateChangeLog
+
+liquibase --driver=com.mysql.jdbc.Driver --classpath=\Users\lucy\Documents\NetBeansProjects\libraries\mysql-connector-java-5.1.22-bin.jar --url="jdbc:mysql://localhost:3306/ibro3" --username=uncc --password=uncc --changeLogFile=db.changelog-1.0.xml diffChangeLog --referenceUrl="jdbc:mysql://localhost:3306/vibrio_test" --referenceUsername=uncc --referencePassword=uncc 
+## don't forget to look for the temp tables that might not exist

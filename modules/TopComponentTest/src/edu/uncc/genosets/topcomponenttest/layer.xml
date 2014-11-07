@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="edu-uncc-genosets-topcomponenttest-layout-LayoutAction.instance">
+                <attr name="component" methodvalue="edu.uncc.genosets.topcomponenttest.layout.LayoutTopComponent.findInstance"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.topcomponenttest.layout.Bundle#CTL_LayoutAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+            </file>
+            <file name="edu-uncc-genosets-topcomponenttest-resize-ResizeAction.instance">
+                <attr name="component" methodvalue="edu.uncc.genosets.topcomponenttest.resize.ResizeTopComponent.findInstance"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.topcomponenttest.resize.Bundle#CTL_ResizeAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Window">
+            <file name="LayoutAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Window/edu-uncc-genosets-topcomponenttest-layout-LayoutAction.instance"/>
+            </file>
+            <file name="ResizeAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Window/edu-uncc-genosets-topcomponenttest-resize-ResizeAction.instance"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="LayoutTopComponent.settings" url="LayoutTopComponentSettings.xml"/>
+            <file name="ResizeTopComponent.settings" url="ResizeTopComponentSettings.xml"/>
+        </folder>
+        <folder name="Modes">
+            <folder name="editor">
+                <file name="LayoutTopComponent.wstcref" url="LayoutTopComponentWstcref.xml"/>
+                <file name="ResizeTopComponent.wstcref" url="ResizeTopComponentWstcref.xml"/>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

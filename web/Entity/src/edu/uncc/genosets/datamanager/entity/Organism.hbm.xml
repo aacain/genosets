@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="Organism" name="edu.uncc.genosets.datamanager.entity.Organism" table="organism">
+        <id name="organismId" type="java.lang.Integer">
+            <column name="OrganismId" sql-type="int unsigned"/>
+             <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <property name="kingdom" type="string">
+            <column name="Kingdom" />
+        </property>
+        <property name="phylum" type="string">
+            <column name="Phylum" />
+        </property>
+        <property name="taxClass" type="string">
+            <column name="TaxClass" />
+        </property>
+        <property name="taxOrder" type="string">
+            <column name="TaxOrder" />
+        </property>
+        <property name="family" type="string">
+            <column name="Family" />
+        </property>
+        <property name="genus" type="string">
+            <column name="Genus" />
+        </property>
+        <property name="species" type="string">
+            <column name="Species" />
+        </property>
+        <property name="strain" type="string">
+            <column name="Strain" />
+        </property>
+        <property name="sample" type="string">
+            <column name="Sample" />
+        </property>
+        <property name="shortName" type="string">
+            <column name="ShortName" />
+        </property>
+        <property index="organism_taxonomyIdentifier_index" name="taxonomyIdentifier" type="java.lang.Integer">
+            <column name="TaxonomyIdentifier" />
+        </property>
+        <property index="organism_projectId_index" name="projectId" type="string">
+            <column name="ProjectId" />
+        </property>
+    </class>
+</hibernate-mapping>

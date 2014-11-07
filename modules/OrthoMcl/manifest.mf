@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.orthomcl
+OpenIDE-Module-Layer: edu/uncc/genosets/orthomcl/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/orthomcl/Bundle.properties
+OpenIDE-Module-Requires: org.openide.windows.WindowManager
+OpenIDE-Module-Specification-Version: 1.1
+

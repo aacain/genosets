@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.apisupport.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
+            <code-name-base>edu.uncc.genosets.biojava</code-name-base>
+            <suite-component/>
+            <module-dependencies/>
+            <public-packages>
+                <package>org.biojava3.core.exceptions</package>
+                <package>org.biojava3.core.sequence</package>
+                <package>org.biojava3.core.sequence.compound</package>
+                <package>org.biojava3.core.sequence.edits</package>
+                <package>org.biojava3.core.sequence.features</package>
+                <package>org.biojava3.core.sequence.io</package>
+                <package>org.biojava3.core.sequence.io.template</package>
+                <package>org.biojava3.core.sequence.io.util</package>
+                <package>org.biojava3.core.sequence.loader</package>
+                <package>org.biojava3.core.sequence.location</package>
+                <package>org.biojava3.core.sequence.location.template</package>
+                <package>org.biojava3.core.sequence.storage</package>
+                <package>org.biojava3.core.sequence.template</package>
+                <package>org.biojava3.core.sequence.transcription</package>
+                <package>org.biojava3.core.sequence.views</package>
+                <package>org.biojava3.core.util</package>
+            </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/biojava3-core-3.0.2.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/biojava3-core-3.0.2.jar</binary-origin>
+            </class-path-extension>
+        </data>
+    </configuration>
+</project>

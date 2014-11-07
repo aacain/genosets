@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.topcomponenttest
+OpenIDE-Module-Layer: edu/uncc/genosets/topcomponenttest/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/topcomponenttest/Bundle.properties
+OpenIDE-Module-Requires: org.openide.windows.WindowManager
+OpenIDE-Module-Specification-Version: 1.0
+

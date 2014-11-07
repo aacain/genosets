@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="lucy" id="1372352191000-1">
+        <createTable tableName="analysisset">
+            <column name="AnalysisSetId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="SetType" type="varchar(50)"/>
+            <column name="SetName" type="varchar(255)"/>
+            <column name="SetDescription" type="varchar(255)"/>
+            <column name="LoadDate" type="DATETIME"/>
+             <column name="ModifiedDate" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy" id="1372352191000-2">
+        <createTable tableName="fact_analysisset">
+            <column name="FactId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="AnalysisSetId" type="INT UNSIGNED"/>
+            <column name="EntityId" type="INT UNSIGNED"/>
+            <column name="EntityTable" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

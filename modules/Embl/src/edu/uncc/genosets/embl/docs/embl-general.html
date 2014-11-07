@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Loading EMBL Annotations</title>
+<link href="default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>Loading EMBL Annotations</h1>
+<hr />
+<p>GenoSets provides several ways to load annotations from EMBL files.</p>
+<h2>Load by selecting from a list of completed EMBL projects</h2>
+<p>Annotation files can be selected from a list of completed EMBL projects.&nbsp; 
+GenoSets queries the EMBL database to find all completed projects and the user 
+may select multiple files from a last for loading.&nbsp; The files are 
+automatically downloaded and stored in the GenoSets database.</p>
+<p class="important">
+<img alt="exclamation" height="24" src="Important.png" width="24" /> <strong>
+Important</strong><br />
+Only chromosome files are included in the list of completed EMBL projects.&nbsp; 
+Plasmid and contig files must use an alternate method to load into GenoSets.</p>
+<h2>Load by Accession Id</h2>
+<p>Files may be downloaded from EMBL and loaded into GenoSets by providing an 
+INSD accession number. The accession id may contain a range which is useful for 
+downloading contig sets.&nbsp; Additionally, multiple accessions may be loaded 
+simultaneously by entering the accession ids separated by line, tab, column, or 
+semicolon.&nbsp; A single accession id may also include the version 
+number (&lt;accession&gt;.&lt;version&gt;).&nbsp; The latest version will be loaded if no 
+version number is specified.&nbsp; If a range is specified, the sequence version 
+will be ignored and the latest version will be loaded.</p>
+<p>Example: To download all the contig files for<em> Brucella abortus</em> NCTC 
+8038, specify the accession range of ACJJ01000001-ACJJ01000045.&nbsp; </p>
+<p>Example: To download plasmid pYJ016 for <em>Vibrio vulnificus</em> YJ016, 
+specify accession AP005352.</p>
+<h2>Annotation Method</h2>
+<p>A annotation method is created for each accession id.&nbsp; The method name 
+is the accession id and the method version is in the format 
+&lt;accession&gt;.&lt;version&gt; of the file.&nbsp; You do not need to set these in the 
+wizard.</p>
+
+</body>
+
+</html>

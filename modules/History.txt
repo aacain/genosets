@@ -1,0 +1,27 @@
+
+Version history for Parallel Sets
+Ticket numbers refer to issues at http://code.google.com/p/parsets/issues/list
+
+V2.1, 2009-08-03
+	* Add menu
+	* Add screenshot function (issue #9)
+	* Add way to reinitialize database
+	* Add option to make highlighted ribbons/bars stand out more (issue #6)
+	* Add way of sorting categories in a dimension by name or size (issue #8)
+	* Show what's new in version check dialog
+	* Fix a number of bugs in the data import that lead to wrong values.
+	  We suggest you re-import data sets to be sure they have been correctly
+	  parsed.
+	* Fix some bugs related to parsing that could crash the importer
+	* Change the data model so it no longer depends on the potential number
+	  of category combinations, but only the actual number of combinations.
+	  This pushes the data set size and number of dimensions that can be
+	  imported beyond most real data sets.
+	* Fix a bug that resulted in crashes if there was a duplicate column name
+	  in the data, or it was created by the program when converting the names
+	  (issue #12)
+	* Fix problem when column name starts with a digit, which causes a parse
+	  error in SQL (issue #13)
+
+V2.0, 2009-06-01
+	* Original release

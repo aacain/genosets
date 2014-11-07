@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="AnnotationMethod" name="edu.uncc.genosets.datamanager.entity.AnnotationMethod" table="annotation_method">
+        <id name="annotationMethodId" type="java.lang.Integer">
+            <column name="AnnotationMethodId" sql-type="int unsigned" />
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+
+        <property name="methodVersion" type="string">
+            <column name="MethodVersion" />
+        </property>
+
+        <property name="methodCategory" type="string">
+            <column name="MethodCategory" />
+        </property>
+
+        <property name="methodType" type="string">
+            <column name="MethodType" />
+        </property>
+
+        <property name="methodSourceType" type="string">
+            <column name="MethodSourceType" />
+        </property>
+
+        <property name="methodName" type="string">
+            <column name="MethodName" />
+        </property>
+
+        <property name="methodDescription" type="string">
+            <column name="MethodDescription" length="16386" />
+        </property>
+
+        <property name="loadDate" type="timestamp">
+            <column name="LoadDate" length="19" />
+        </property>
+        
+        <property name="RunDate" type="timestamp">
+            <column name="AquisitionDate" length="19" />
+        </property>
+
+        <property name="obsolete" type="java.lang.Boolean">
+            <column name="Obsolete"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

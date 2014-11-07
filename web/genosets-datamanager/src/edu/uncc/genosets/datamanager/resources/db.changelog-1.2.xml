@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="lucy (generated)" id="1372352190710-1">
+        <dropColumn tableName="studyset" columnName="EntityId"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190710-2">
+        <modifyDataType tableName="studyset" columnName="EntityTable" newDataType="VARCHAR(50)"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190710-3">
+        <createTable tableName="fact_studyset">
+            <column name="FactId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="StudySetId" type="INT UNSIGNED"/>
+            <column name="EntityId" type="INT UNSIGNED"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190710-4">
+        <createIndex indexName="index1" tableName="fact_studyset" unique="false">
+            <column name="EntityId"/>
+        </createIndex>
+        <createIndex indexName="index2" tableName="fact_studyset" unique="false">
+            <column name="StudySetId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190710-6">
+        <addColumn tableName="studyset">
+            <column name="studySetName" type="varchar(255)"/>
+        </addColumn>
+        <addColumn tableName="studyset">
+            <column name="studySetDescription" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190711-1">
+        <addColumn tableName="studyset">
+            <column name="LoadDate" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1372352190711-2">
+        <addColumn tableName="studyset">
+            <column name="ModifiedDate" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

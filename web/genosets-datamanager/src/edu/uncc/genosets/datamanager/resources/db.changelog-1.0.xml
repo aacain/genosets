@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="lucy (generated)" id="1368045507728-1">
+        <createTable tableName="annotation_method">
+            <column name="AnnotationMethodId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="MethodVersion" type="VARCHAR(255)"/>
+            <column name="MethodCategory" type="VARCHAR(255)"/>
+            <column name="MethodType" type="VARCHAR(255)"/>
+            <column name="MethodSourceType" type="VARCHAR(255)"/>
+            <column name="MethodName" type="VARCHAR(255)"/>
+            <column name="MethodDescription" type="LONGTEXT"/>
+            <column name="LoadDate" type="DATETIME"/>
+            <column name="AquisitionDate" type="DATETIME"/>
+            <column name="Obsolete" type="BIT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-2">
+        <createTable tableName="assembled_unit">
+            <column name="AssembledUnitId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT UNSIGNED"/>
+            <column name="MolecularSequence" type="INT UNSIGNED"/>
+            <column name="AssembledUnitName" type="VARCHAR(255)"/>
+            <column name="AccessionVersion" type="VARCHAR(255)"/>
+            <column name="SequenceLength" type="INT"/>
+            <column name="AssembledUnitType" type="VARCHAR(127)"/>
+            <column name="ReplicatingUnitType" type="VARCHAR(255)"/>
+            <column name="RepUnitName" type="VARCHAR(255)"/>
+            <column name="AssembledUnitLength" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-3">
+        <createTable tableName="cluster_go_term">
+            <column name="FeatureClusterId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="ClusterCategory" type="VARCHAR(255)"/>
+            <column name="ClusterType" type="VARCHAR(255)"/>
+            <column name="ClusterName" type="VARCHAR(255)"/>
+            <column name="goName" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-4">
+        <createTable tableName="cluster_pathway">
+            <column name="FeatureClusterId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="ClusterCategory" type="VARCHAR(255)"/>
+            <column name="ClusterType" type="VARCHAR(255)"/>
+            <column name="ClusterName" type="VARCHAR(255)"/>
+            <column name="pathwayName" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-5">
+        <createTable tableName="fact_assembled_unit_aquisition">
+            <column name="AssembledUnitAquisitionId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="AnnotationMethod" type="INT UNSIGNED"/>
+            <column name="AssembledUnitName" type="VARCHAR(255)"/>
+            <column name="MolecularSequence" type="INT UNSIGNED"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-6">
+        <createTable tableName="fact_feature_go_anno">
+            <column name="FactId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="Feature" type="INT"/>
+            <column name="FeatureCluster" type="INT UNSIGNED"/>
+            <column name="AnnotationMethod" type="INT UNSIGNED"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-7">
+        <createTable tableName="fact_location_anno_fact">
+            <column name="FactId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="Feature" type="INT"/>
+            <column name="FeatureCluster" type="INT UNSIGNED"/>
+            <column name="AnnotationMethod" type="INT UNSIGNED"/>
+            <column name="Location" type="INT UNSIGNED"/>
+            <column name="PrimaryName" type="VARCHAR(255)"/>
+            <column name="FeatureType" type="VARCHAR(255)"/>
+            <column name="Product" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-8">
+        <createTable tableName="fact_location_annofact_detail">
+            <column name="FactId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="Feature" type="INT"/>
+            <column name="FeatureCluster" type="INT UNSIGNED"/>
+            <column name="AnnotationMethod" type="INT UNSIGNED"/>
+            <column name="ParentFact" type="INT UNSIGNED"/>
+            <column name="FeatureSequence" type="INT UNSIGNED"/>
+            <column name="DetailType" type="VARCHAR(255)"/>
+            <column name="DetailValue" type="LONGTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-9">
+        <createTable tableName="fact_location_ortho_fact">
+            <column name="FactId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="Feature" type="INT"/>
+            <column name="FeatureCluster" type="INT UNSIGNED"/>
+            <column name="AnnotationMethod" type="INT UNSIGNED"/>
+            <column name="Location" type="INT UNSIGNED"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-10">
+        <createTable tableName="fact_location_pathway_fact">
+            <column name="FactId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="Feature" type="INT"/>
+            <column name="FeatureCluster" type="INT UNSIGNED"/>
+            <column name="AnnotationMethod" type="INT UNSIGNED"/>
+            <column name="Location" type="INT UNSIGNED"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-11">
+        <createTable tableName="feature">
+            <column name="featureId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="PrimaryName" type="VARCHAR(255)"/>
+            <column name="FeatureType" type="VARCHAR(255)"/>
+            <column name="Product" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-12">
+        <createTable tableName="feature_cluster">
+            <column name="FeatureClusterId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="ClusterCategory" type="VARCHAR(255)"/>
+            <column name="ClusterType" type="VARCHAR(255)"/>
+            <column name="ClusterName" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-13">
+        <createTable tableName="feature_cluster_classification">
+            <column name="ClusterClassificationId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT UNSIGNED"/>
+            <column name="Feature" type="INT UNSIGNED"/>
+            <column name="FeatureCluster" type="INT UNSIGNED"/>
+            <column name="AnnotationMethod" type="INT UNSIGNED"/>
+            <column name="AssembledUnit" type="INT UNSIGNED"/>
+            <column name="TotalFeatureInClusterByMethod" type="INT UNSIGNED"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-14">
+        <createTable tableName="feature_sequence">
+            <column name="MolecularSequenceId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="SequenceType" type="VARCHAR(255)"/>
+            <column name="ForwardSequence" type="LONGTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-15">
+        <createTable tableName="graph_go">
+            <column name="graphId" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Parent" type="INT"/>
+            <column name="Child" type="INT"/>
+            <column name="Level" type="INT"/>
+            <column name="RelationType" type="VARCHAR(255)"/>
+            <column name="AnnotationMethod" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-16">
+        <createTable tableName="hibernate_sequences">
+            <column name="sequence_name" type="VARCHAR(255)"/>
+            <column name="sequence_next_hi_value" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-17">
+        <createTable tableName="location">
+            <column name="LoctionId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Organism" type="INT"/>
+            <column name="AssembledUnit" type="INT"/>
+            <column name="ProteinSequence" type="INT"/>
+            <column name="AssembledSequence" type="INT"/>
+            <column name="Feature" type="INT"/>
+            <column name="MinPosition" type="INT UNSIGNED"/>
+            <column name="MaxPosition" type="INT UNSIGNED"/>
+            <column name="StartPosition" type="INT UNSIGNED"/>
+            <column name="EndPosition" type="INT UNSIGNED"/>
+            <column name="IsForward" type="BIT"/>
+            <column name="GC_count" type="INT"/>
+            <column name="NucleotideLength" type="INT UNSIGNED"/>
+            <column name="GC_Percent" type="FLOAT"/>
+            <column name="PrimaryName" type="VARCHAR(255)"/>
+            <column name="FeatureType" type="VARCHAR(255)"/>
+            <column name="Product" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-18">
+        <createTable tableName="molecular_sequence">
+            <column name="MolecularSequenceId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="SequenceType" type="VARCHAR(255)"/>
+            <column name="ForwardSequence" type="LONGTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-19">
+        <createTable tableName="organism">
+            <column name="OrganismId" type="INT UNSIGNED">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Kingdom" type="VARCHAR(255)"/>
+            <column name="Phylum" type="VARCHAR(255)"/>
+            <column name="TaxClass" type="VARCHAR(255)"/>
+            <column name="TaxOrder" type="VARCHAR(255)"/>
+            <column name="Family" type="VARCHAR(255)"/>
+            <column name="Genus" type="VARCHAR(255)"/>
+            <column name="Species" type="VARCHAR(255)"/>
+            <column name="Strain" type="VARCHAR(255)"/>
+            <column name="Sample" type="VARCHAR(255)"/>
+            <column name="ShortName" type="VARCHAR(255)"/>
+            <column name="TaxonomyIdentifier" type="INT"/>
+            <column name="ProjectId" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-20">
+        <addForeignKeyConstraint baseColumnNames="MolecularSequence" baseTableName="assembled_unit"  constraintName="FK144F48D136115FE2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="MolecularSequenceId" referencedTableName="molecular_sequence"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-21">
+        <addForeignKeyConstraint baseColumnNames="Organism" baseTableName="assembled_unit"  constraintName="FK144F48D1A0C765C4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="OrganismId" referencedTableName="organism"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-22">
+        <addForeignKeyConstraint baseColumnNames="AnnotationMethod" baseTableName="fact_assembled_unit_aquisition"  constraintName="FKA19F42498C25E9E0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AnnotationMethodId" referencedTableName="annotation_method"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-23">
+        <addForeignKeyConstraint baseColumnNames="MolecularSequence" baseTableName="fact_assembled_unit_aquisition"  constraintName="FKA19F424936115FE2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="MolecularSequenceId" referencedTableName="molecular_sequence"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-24">
+        <addForeignKeyConstraint baseColumnNames="AnnotationMethod" baseTableName="fact_feature_go_anno"  constraintName="FK30DDDF898C25E9E0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AnnotationMethodId" referencedTableName="annotation_method"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-25">
+        <addForeignKeyConstraint baseColumnNames="FeatureCluster" baseTableName="fact_feature_go_anno"  constraintName="FK30DDDF89C84DDDD" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="FeatureClusterId" referencedTableName="cluster_go_term"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-26">
+        <addForeignKeyConstraint baseColumnNames="AnnotationMethod" baseTableName="fact_location_anno_fact"  constraintName="FK501EA6068C25E9E0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AnnotationMethodId" referencedTableName="annotation_method"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-27">
+        <addForeignKeyConstraint baseColumnNames="FeatureCluster" baseTableName="fact_location_anno_fact"  constraintName="FK501EA606D3385088" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="FeatureClusterId" referencedTableName="feature_cluster"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-28">
+        <addForeignKeyConstraint baseColumnNames="Location" baseTableName="fact_location_anno_fact"  constraintName="FK501EA606E679A38A" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="LoctionId" referencedTableName="location"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-29">
+        <addForeignKeyConstraint baseColumnNames="AnnotationMethod" baseTableName="fact_location_annofact_detail"  constraintName="FK7E454BFF8C25E9E0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AnnotationMethodId" referencedTableName="annotation_method"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-30">
+        <addForeignKeyConstraint baseColumnNames="FeatureCluster" baseTableName="fact_location_annofact_detail"  constraintName="FK7E454BFFD3385088" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="FeatureClusterId" referencedTableName="feature_cluster"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-31">
+        <addForeignKeyConstraint baseColumnNames="FeatureSequence" baseTableName="fact_location_annofact_detail"  constraintName="FK7E454BFFF56BD4FB" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="MolecularSequenceId" referencedTableName="feature_sequence"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-32">
+        <addForeignKeyConstraint baseColumnNames="ParentFact" baseTableName="fact_location_annofact_detail"  constraintName="FK7E454BFFCE7EE470" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="FactId" referencedTableName="fact_location_anno_fact"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-33">
+        <addForeignKeyConstraint baseColumnNames="AnnotationMethod" baseTableName="fact_location_ortho_fact"  constraintName="FK78B4970A8C25E9E0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AnnotationMethodId" referencedTableName="annotation_method"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-34">
+        <addForeignKeyConstraint baseColumnNames="FeatureCluster" baseTableName="fact_location_ortho_fact"  constraintName="FK78B4970AD3385088" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="FeatureClusterId" referencedTableName="feature_cluster"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-35">
+        <addForeignKeyConstraint baseColumnNames="Location" baseTableName="fact_location_ortho_fact"  constraintName="FK78B4970AE679A38A" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="LoctionId" referencedTableName="location"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-36">
+        <addForeignKeyConstraint baseColumnNames="AnnotationMethod" baseTableName="fact_location_pathway_fact"  constraintName="FKB93A7988C25E9E0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AnnotationMethodId" referencedTableName="annotation_method"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-37">
+        <addForeignKeyConstraint baseColumnNames="FeatureCluster" baseTableName="fact_location_pathway_fact"  constraintName="FKB93A7981FB533B4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="FeatureClusterId" referencedTableName="cluster_pathway"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-38">
+        <addForeignKeyConstraint baseColumnNames="Location" baseTableName="fact_location_pathway_fact"  constraintName="FKB93A798E679A38A" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="LoctionId" referencedTableName="location"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-39">
+        <addForeignKeyConstraint baseColumnNames="AnnotationMethod" baseTableName="feature_cluster_classification"  constraintName="FKD2258C348C25E9E0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AnnotationMethodId" referencedTableName="annotation_method"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-40">
+        <addForeignKeyConstraint baseColumnNames="AssembledUnit" baseTableName="feature_cluster_classification"  constraintName="FKD2258C3430F3DEAC" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="AssembledUnitId" referencedTableName="assembled_unit"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-41">
+        <addForeignKeyConstraint baseColumnNames="Feature" baseTableName="feature_cluster_classification"  constraintName="FKD2258C34EE7D8DCC" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="featureId" referencedTableName="feature"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-42">
+        <addForeignKeyConstraint baseColumnNames="FeatureCluster" baseTableName="feature_cluster_classification"  constraintName="FKD2258C34D3385088" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="FeatureClusterId" referencedTableName="feature_cluster"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-43">
+        <addForeignKeyConstraint baseColumnNames="Organism" baseTableName="feature_cluster_classification"  constraintName="FKD2258C34A0C765C4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="OrganismId" referencedTableName="organism"  referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-44">
+        <createIndex indexName="AssembledUnitIndex" tableName="fact_feature_go_anno" unique="false">
+            <column name="AssembledUnit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-45">
+        <createIndex indexName="FeatureIndex" tableName="fact_feature_go_anno" unique="false">
+            <column name="Feature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-46">
+        <createIndex indexName="OrganismIndex" tableName="fact_feature_go_anno" unique="false">
+            <column name="Organism"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-47">
+        <createIndex indexName="AssembledUnitIndex" tableName="fact_location_anno_fact" unique="false">
+            <column name="AssembledUnit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-48">
+        <createIndex indexName="FeatureIndex" tableName="fact_location_anno_fact" unique="false">
+            <column name="Feature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-49">
+        <createIndex indexName="OrganismIndex" tableName="fact_location_anno_fact" unique="false">
+            <column name="Organism"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-50">
+        <createIndex indexName="AssembledUnitIndex" tableName="fact_location_annofact_detail" unique="false">
+            <column name="AssembledUnit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-51">
+        <createIndex indexName="FeatureIndex" tableName="fact_location_annofact_detail" unique="false">
+            <column name="Feature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-52">
+        <createIndex indexName="OrganismIndex" tableName="fact_location_annofact_detail" unique="false">
+            <column name="Organism"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-53">
+        <createIndex indexName="AssembledUnitIndex" tableName="fact_location_ortho_fact" unique="false">
+            <column name="AssembledUnit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-54">
+        <createIndex indexName="FeatureIndex" tableName="fact_location_ortho_fact" unique="false">
+            <column name="Feature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-55">
+        <createIndex indexName="OrganismIndex" tableName="fact_location_ortho_fact" unique="false">
+            <column name="Organism"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-56">
+        <createIndex indexName="AssembledUnitIndex" tableName="fact_location_pathway_fact" unique="false">
+            <column name="AssembledUnit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-57">
+        <createIndex indexName="FeatureIndex" tableName="fact_location_pathway_fact" unique="false">
+            <column name="Feature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-58">
+        <createIndex indexName="OrganismIndex" tableName="fact_location_pathway_fact" unique="false">
+            <column name="Organism"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-59">
+        <createIndex indexName="AssembledUnitIndex" tableName="feature" unique="false">
+            <column name="AssembledUnit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-60">
+        <createIndex indexName="OrganismIndex" tableName="feature" unique="false">
+            <column name="Organism"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-61">
+        <createIndex indexName="AnnotationMethodIndex" tableName="graph_go" unique="false">
+            <column name="AnnotationMethod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-62">
+        <createIndex indexName="ChildIndex" tableName="graph_go" unique="false">
+            <column name="Child"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-63">
+        <createIndex indexName="ParentIndex" tableName="graph_go" unique="false">
+            <column name="Parent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-64">
+        <createIndex indexName="AssembledUnitIndex" tableName="location" unique="false">
+            <column name="AssembledUnit"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-65">
+        <createIndex indexName="FeatureIndex" tableName="location" unique="false">
+            <column name="Feature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-66">
+        <createIndex indexName="OrganismIndex" tableName="location" unique="false">
+            <column name="Organism"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-67">
+        <createIndex indexName="organism_projectId_index" tableName="organism" unique="false">
+            <column name="ProjectId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="lucy (generated)" id="1368045507728-68">
+        <createIndex indexName="organism_taxonomyIdentifier_index" tableName="organism" unique="false">
+            <column name="TaxonomyIdentifier"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

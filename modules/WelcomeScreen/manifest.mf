@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.welcome
+OpenIDE-Module-Install: edu/uncc/genosets/welcome/Installer.class
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/welcome/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Layer: edu/uncc/genosets/welcome/resources/layer.xml
+AutoUpdate-Show-In-Client: false
+

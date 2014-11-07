@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="FeatureDetailType" name="edu.uncc.genosets.datamanager.entity.FeatureDetailType" table="feature_detail_type" >
+        <id name="featureDetailTypeId" type="java.lang.Integer">
+            <column name="FeatureDetailTypeId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <property name="detailCategory" type="string">
+            <column name="DetailCategory" />
+        </property>
+        <property name="detailType" type="string">
+            <column name="DetailType" />
+        </property>
+        <set name="featureAnnotationDetails" inverse="true">
+            <key>
+                <column name="FeatureDetailType"  sql-type="int unsigned" />
+            </key>
+            <one-to-many entity-name="FeatureAnnotationDetail" />
+        </set>
+        <set name="featureAnnotationDetails_1" inverse="true">
+            <key>
+                <column name="FeatureDetailType" sql-type="int unsigned"  />
+            </key>
+            <one-to-many entity-name="FeatureAnnotationDetail" />
+        </set>
+    </class>
+</hibernate-mapping>

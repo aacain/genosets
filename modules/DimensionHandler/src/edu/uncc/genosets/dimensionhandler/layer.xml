@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Load">
+            <file name="edu-uncc-genosets-dimensionhandler-TempTableCreateAction.instance">
+                <attr name="delegate" newvalue="edu.uncc.genosets.dimensionhandler.TempTableCreateAction"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.dimensionhandler.Bundle#CTL_TempTableCreateAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>

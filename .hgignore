@@ -1,0 +1,4 @@
+relre:.*/build/.*
+relre:.*/dist/.*
+syntax: glob
+modules/Queries/nbproject/private/profiler/configurations.xml

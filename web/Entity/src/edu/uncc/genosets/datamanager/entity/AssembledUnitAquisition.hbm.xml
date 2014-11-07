@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="AssembledUnitAquisition" name="edu.uncc.genosets.datamanager.entity.AssembledUnitAquisition" table="fact_assembled_unit_aquisition">
+        <id name="assembledUnitAquisitionId" type="java.lang.Integer">
+            <column name="AssembledUnitAquisitionId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+            </generator>
+        </id>
+
+        <property name="organismId" type="java.lang.Integer" insert="false" update="false">
+            <column name="Organism"/>
+        </property>
+
+        <property name="assembledUnitId" type="java.lang.Integer" insert="false" update="false" >
+            <column name="AssembledUnit"/>
+        </property>
+
+        <property name="annotationMethodId" type="java.lang.Integer" insert="false" update="false">
+            <column name="AnnotationMethod" sql-type="int unsigned"/>
+        </property>
+        
+        <property name="assembledUnitName" type="string">
+            <column name="AssembledUnitName"/>
+        </property>
+
+        <many-to-one name="organism" entity-name="Organism" fetch="select">
+            <column name="Organism"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="molecularSequence" entity-name="MolecularSequence" fetch="select">
+            <column name="MolecularSequence"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select">
+            <column name="AnnotationMethod"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="assembledUnit" entity-name="AssembledUnit" fetch="select">
+            <column name="AssembledUnit"  sql-type="int unsigned" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mode version="2.3">
+    <name unique="mode1" />
+  <kind type="editor" />
+  <state type="separated" />
+  <bounds x="96" y="92" width="900" height="600" />
+  <frame state="0"/>
+    <empty-behavior permanent="false"/>
+</mode>

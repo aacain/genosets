@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Load">
+            <file name="edu-uncc-genosets-core-api-LegacyAction.instance">
+                <attr name="delegate" newvalue="edu.uncc.genosets.core.api.LegacyAction"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.core.api.Bundle#CTL_LegacyAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+            <file name="edu-uncc-genosets-core-api-LoadCMR.instance">
+                <attr name="delegate" newvalue="edu.uncc.genosets.core.api.LoadCMR"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.core.api.Bundle#CTL_LoadCMR"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+            <file name="edu-uncc-genosets-core-api-LocationAmbiguityAction.instance">
+                <attr name="delegate" newvalue="edu.uncc.genosets.core.api.LocationAmbiguityAction"/>
+                <attr name="displayName" bundlevalue="edu.uncc.genosets.core.api.Bundle#CTL_LocationAmbiguityAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+<!--        <folder name="Load">
+            <folder name="Legacy">
+                <attr name="edu-uncc-genosets-core-api-LocationAmbiguityAction.shadow/edu-uncc-genosets-core-api-LegacyAction.shadow" boolvalue="true"/>
+                <file name="edu-uncc-genosets-core-api-LegacyAction.shadow" url="edu-uncc-genosets-core-api-LegacyAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Load/edu-uncc-genosets-core-api-LegacyAction.instance"/>
+                </file>
+                <file name="edu-uncc-genosets-core-api-LoadCMR.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Load/edu-uncc-genosets-core-api-LoadCMR.instance"/>
+                </file>
+                <file name="edu-uncc-genosets-core-api-LocationAmbiguityAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Load/edu-uncc-genosets-core-api-LocationAmbiguityAction.instance"/>
+                </file>
+            </folder>
+            </folder>-->
+        <file name="Edit_hidden"/>
+        <file name="GoTo_hidden"/>
+        <file name="View_hidden"/>
+    </folder>
+</filesystem>

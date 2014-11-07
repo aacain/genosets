@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Dimensions.xml
+    Created on : March 21, 2011, 3:30 PM
+    Author     : aacain
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+    <ortholog name="" displayName="" alias="">
+    </ortholog>
+    <combined-property operator="AND">
+        <property name="" crit-value""/>
+    </combined-property>
+</root>

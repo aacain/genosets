@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="Graph_Go" name="edu.uncc.genosets.datamanager.entity.ClusterGraph" table="graph_go">
+        <id name="graphId" type="long">
+            <column name="graphId"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+
+        <property name="parentId" type="java.lang.Integer" index="ParentIndex">
+            <column name="Parent"/>
+        </property>
+
+        <property name="childId" type="java.lang.Integer" index="ChildIndex">
+            <column name="Child"/>
+        </property>
+
+         <property name="level" type="java.lang.Integer" >
+            <column name="Level"/>
+        </property>
+
+        <property name="relationType" type="string" >
+            <column name="RelationType"/>
+        </property>
+
+        <property name="annotationMethodId" type="java.lang.Integer" index="AnnotationMethodIndex">
+            <column name="AnnotationMethod"/>
+        </property>
+
+        <many-to-one name="parent" entity-name="Cluster_GoTerm" fetch="select" insert="false" update="false">
+            <column name="Parent"  sql-type="int unsigned" />
+        </many-to-one>
+
+        <many-to-one name="child" entity-name="Cluster_GoTerm" fetch="select" insert="false" update="false">
+            <column name="Child"  sql-type="int unsigned" />
+        </many-to-one>
+
+        <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select" insert="false" update="false">
+            <column name="AnnotationMethod"  sql-type="int unsigned" />
+        </many-to-one>
+
+    </class>
+    
+</hibernate-mapping>

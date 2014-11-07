@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/anno-sample_907143507-Parent-Child-Union-None.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE ontologizer SYSTEM "anno-sample_907143507-Parent-Child-Union-None.dtd">
+
+    <ontologizer>
+    ...
+    </ontologizer>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT ontologizer (populations|obo|date)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT date EMPTY>
+<!ATTLIST date
+    longValue CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT obo EMPTY>
+<!ATTLIST obo
+    name CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT populations (set)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT set EMPTY>
+<!ATTLIST set
+    name CDATA #IMPLIED
+  >

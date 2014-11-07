@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd 
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd" >
+    
+    <context:annotation-config />
+    <context:component-scan base-package="edu.uncc.genosets.service"/>
+    
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>WEB-INF/database.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+        
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close"
+          p:driverClass="com.mysql.jdbc.Driver"
+          p:jdbcUrl="${db.url}"
+          p:user="${db.user}"
+          p:password="${db.password}"
+          p:acquireIncrement="5"
+          p:idleConnectionTestPeriod="60"
+          p:maxPoolSize="100"
+          p:maxStatements="50"
+          p:minPoolSize="10" />
+     
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:edu/uncc/genosets/datamanager/entity/mapping.cfg.xml"/><!--
+        <property name="packagesToScan" value="classpath:edu.uncc.genosets.datamanager.entity"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>edu.uncc.genosets.datamanager.entity.StudySetDatabase</value>
+                <value>edu.uncc.genosets.datamanager.entity.StudySetEntity</value>
+            </list>
+        </property>-->
+<!--        <property name="mappingResources">
+            <list>
+                <value>edu/uncc/genosets/datamanager/entity/AssembledUnit.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/MolecularSequence.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/FeatureCluster.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/AnnotationMethod.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/FeatureClusterClassification.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Organism.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/AssembledUnitAquisition.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Feature.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Location.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Fact_Location_AnnoFact.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Fact_Location_AnnoFact_Detail.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/ProteinSequence.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Fact_Location_OrthoFact.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Fact_Location_PathwayFact.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Cluster_Pathway.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Cluster_GoTerm.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Fact_Feature_GOAnno.hbm.xml</value>
+                <value>edu/uncc/genosets/datamanager/entity/Graph_Go.hbm.xml</value>
+            </list>
+        </property>-->
+<!--        <property name="mappingResources">
+            <list>
+                <value>edu/uncc/genosets/datamanager/entity/Organism.hbm.xml</value>
+            </list>
+        </property>-->
+        
+    </bean>
+    
+    <bean id="hibUtil" class="edu.uncc.genosets.datamanager.hibernate.HibernateUtil_spring">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <tx:annotation-driven transaction-manager="txManager"/>
+    
+    <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="testService" class="edu.uncc.genosets.service.ServiceManagerImpl" init-method="initDataManager"/>
+
+    <bean id="testHttpInvoker" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+        <property name="service">
+            <ref bean="testService"/>
+        </property>
+        <property name="serviceInterface">
+            <value>edu.uncc.genosets.datamanager.api.ServiceManager</value>
+        </property>
+    </bean>
+    
+    
+    
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/testService.service">testHttpInvoker</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="localDataManager" class="edu.uncc.genosets.service.LocalDataManager">
+        <property name="hibUtil" ref="hibUtil"/>
+    </bean>
+    
+</beans>

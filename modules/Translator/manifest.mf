@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.translator
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/translator/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

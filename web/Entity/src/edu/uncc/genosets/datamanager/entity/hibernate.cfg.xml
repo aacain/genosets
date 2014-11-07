@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.username">uncc</property>
+    <property name="hibernate.connection.password">uncc</property>
+    <property name="connection.autoReconnect">true</property>
+    <!-- autoreconnect -->
+    <property name="c3p0.min_size">5</property>
+    <property name="c3p0.max_size">20</property>
+    <property name="c3p0.timeout">1800</property>
+    <property name="c3p0.max_statements">50</property>
+    <!-- no "connection.pool_size" entry! -->
+    <property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/AssembledUnit.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/MolecularSequence.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/FeatureCluster.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/AnnotationMethod.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/FeatureClusterClassification.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Organism.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/AssembledUnitAquisition.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Feature.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Location.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Fact_Location_AnnoFact.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Fact_Location_AnnoFact_Detail.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/ProteinSequence.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Fact_Location_OrthoFact.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Fact_Location_PathwayFact.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Cluster_Pathway.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Cluster_GoTerm.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Fact_Feature_GOAnno.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Graph_Go.hbm.xml"/>
+    <!--    <mapping class="edu.uncc.genosets.datamanager.entity.StudySetDatabase"/>
+    <mapping class="edu.uncc.genosets.datamanager.entity.StudySetEntity"/>
+    <mapping class="edu.uncc.genosets.datamanager.entity.StudySetExtended"/>
+    <mapping class="edu.uncc.genosets.datamanager.entity.FactStudySet"/>-->
+    <!--    <mapping class="edu.uncc.genosets.datamanager.entity.StudySetTest"/>-->
+    <mapping resource="edu/uncc/genosets/datamanager/entity/StudySetEntity.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Fact_StudySet.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/DbFile.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/AnalysisSet.hbm.xml"/>
+    <mapping resource="edu/uncc/genosets/datamanager/entity/Fact_AnalysisSet.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

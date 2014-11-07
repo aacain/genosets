@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Loading GFF3 Annotation Files</title>
+<style type="text/css">
+.important {
+	margin-left: 40px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Loading GFF3 Annotation Files</h1>
+<p>The GenoSets systems allows you to load annotation files in
+<a href="http://www.sequenceontology.org/resources/gff3.html">GFF3 format</a>.</p>
+<hr />
+<h2>File format requirements:</h2>
+<p>The file must contain the nucleotide FASTA sequences for each of the seqid (column 
+1) listed in the file. It may contain additional nucleotide sequences that do not 
+have associated feature annotations and these assembled units will be saved in the 
+database. The inclusion of protein sequences in the FASTA section is optional.
+</p>
+<p class="important"><img alt="" height="24" src="Important.png" width="24" /><strong> 
+Important <br />
+</strong>If the protein sequences are omitted, then the types of the features to 
+be translated must be specified in the wizard (see below). </p>
+<br />
+The locus tag and product of the feature is determined from the attributes 
+column (column 9) of the file.&nbsp; The locus tag can be specified by either 
+the attribute tags &#39;locus_tag&#39; or &#39;ID&#39;.&nbsp; The product is set to the 
+attribute &#39;product&#39;.<br />
+<hr />
+<h2>Steps:</h2>
+<ol>
+	<li>
+	<h3>Download the GFF3 file of interest to local machine.</h3>
+	</li>
+	<li>
+	<h3>Open the Load File Wizard.</h3>
+	<ul>
+		<li>On the <strong>Add Data</strong> menu, click <strong>Load Data Wizard</strong>.</li>
+		<li>Select <strong>Generic Feature Format Version 3 (GFF3) </strong>from 
+		the <strong>GFF</strong> folder.</li>
+	</ul>
+	</li>
+	<li>
+	<h3>Select the local file.</h3>
+	</li>
+	<li>
+	<h3>Select an existing organism or create a new organism.</h3>
+	<p>You can add an additional annotation set to an existing organism or you may 
+	create a new organism.</p>
+	</li>
+	<li>
+	<h3>Specifying feature types to be translated:</h3>
+	<p>
+	<img alt="Exclamation Point" height="24" src="Important.png" width="24" />
+	<strong>Important</strong><br />
+	If the protein sequences are not included in the FASTA section of the file, 
+	then the feature types must be specified in the wizard.&nbsp;&nbsp; </p>
+	<p>The most common type is &#39;CDS&#39; but in some cases the type is specified as 
+	&#39;gene&#39;. If the type is &#39;gene&#39; then the file most likely does not contain any 
+	&#39;CDS&#39; features. Note: GenBank/EMBL/DDBJ and PATRIC GFF3 annotations often include 
+	both a gene and CDS entry for a single locus. In this case, the translation 
+	type should be specified as &#39;CDS&#39;.&nbsp; Multiple feature types may be seperated 
+	by line, tab, comma, or semicolumn.</p>
+	</li>
+	<li>
+	<h3>Click<span></span> Next</h3>
+	</li>
+	<li>
+	<h3>Enter the details for the annotation method.</h3>
+	</li>
+</ol>
+
+</body>
+
+</html>

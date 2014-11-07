@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="FeatureClusterDetail" name="edu.uncc.genosets.datamanager.entity.FeatureClusterDetail" table="feature_cluster_detail">
+        <id name="featureClusterDetailId" type="java.lang.Integer">
+            <column name="FeatureClusterDetailId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <many-to-one name="organism" entity-name="Organism" fetch="select" insert="false" update="false">
+            <column name="Organism"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="feature" entity-name="Feature" fetch="select" insert="false" update="false">
+            <column name="Feature"  sql-type="int unsigned" />
+        </many-to-one>
+
+        <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select" insert="false" update="false">
+            <column name="AnnotationMethod" sql-type="int unsigned"  />
+        </many-to-one>
+        <many-to-one name="assembledUnit" entity-name="AssembledUnit" fetch="select" insert="false" update="false">
+            <column name="AssembledUnit" sql-type="int unsigned" />
+        </many-to-one>
+
+        <property name="featureId" type="java.lang.Integer" >
+            <column name="Feature" sql-type="int unsigned"/>
+        </property>
+        <property name="organismId" type="java.lang.Integer">
+            <column name="Organism" sql-type="int unsigned"/>
+        </property>
+        <property name="featureClusterId" type="java.lang.Integer">
+            <column name="FeatureCluster" sql-type="int unsigned"/>
+        </property>
+        <property name="annotationMethodId" type="java.lang.Integer">
+            <column name="AnnotationMethod" sql-type="int unsigned"/>
+        </property>
+        <property name="assembledUnitId" type="java.lang.Integer">
+            <column name="AssembledUnit" sql-type="int unsigned"/>
+        </property>
+        <property name="detailType" type="string">
+            <column name="DetailType"/>
+        </property>
+        <property name="detailValue" type="string">
+            <column name="DetailValue" length="511"/>
+        </property>
+
+        <union-subclass entity-name="AnnoClassificationDetail" name="edu.uncc.genosets.datamanager.entity.FeatureClusterDetail" table="anno_classification_detail">
+            <property name="clusterFactId" type="java.lang.Integer">
+                <column name="ClusterFact" sql-type="int unsigned"/>
+            </property>
+            <many-to-one name="clusterFact" entity-name="Annotation_Classification" fetch="select" insert="false" update="false">
+                <column name="ClusterFact"  sql-type="int unsigned" />
+            </many-to-one>
+        </union-subclass>
+
+    </class>
+</hibernate-mapping>

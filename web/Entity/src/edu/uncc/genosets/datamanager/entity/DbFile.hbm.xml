@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class entity-name="DbFile" name="edu.uncc.genosets.datamanager.entity.DbFile" table="file">
+    <id name="fileId" type="java.lang.Integer">
+      <column name="FileId" sql-type="int unsigned"/>
+      <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+        <param name="max_lo">2</param>
+      </generator>
+    </id>
+    <property name="fileName" type="string">
+      <column name="FileName"/>
+    </property>
+    <property name="fileExtension" type="string">
+      <column name="FileExtension"/>
+    </property>
+    <property name="fileType" type="string">
+      <column name="FileType"/>
+    </property>
+    <property name="fileContent" type="binary">
+      <column name="FileContent"/>
+    </property>
+  </class>
+</hibernate-mapping>

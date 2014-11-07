@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2010 3:29:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class entity-name="FeatureAnnotation" name="edu.uncc.genosets.datamanager.entity.FeatureAnnotation" table="feature_annotation">
+        <id name="annotationId" type="java.lang.Integer">
+            <column name="AnnotationId" sql-type="int unsigned"/>
+            <generator class="org.hibernate.id.MultipleHiLoPerTableGenerator" >
+                <param name="max_lo">100</param>
+             </generator>
+        </id>
+        <many-to-one name="organism" entity-name="Organism" fetch="select">
+            <column name="Organism"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="feature" entity-name="Feature" fetch="select">
+            <column name="Feature"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select">
+            <column name="AnnotationMethod"  sql-type="int unsigned" />
+        </many-to-one>
+        <many-to-one name="assembledUnit" entity-name="AssembledUnit" fetch="select">
+            <column name="AssembledUnit"  sql-type="int unsigned" />
+        </many-to-one>
+        <property name="weight" type="java.lang.Integer">
+            <column name="Weight" />
+        </property>
+
+        <set name="featureAnnotationDetails" inverse="true">
+            <key>
+                <column name="FeatureAnnotation"  sql-type="int unsigned" />
+            </key>
+            <one-to-many entity-name="FeatureAnnotationDetail" />
+        </set>
+
+        <set name="featureAnnotationDetails_1" inverse="true">
+            <key>
+                <column name="FeatureAnnotation"  sql-type="int unsigned" />
+            </key>
+            <one-to-many entity-name="FeatureAnnotationDetail" />
+        </set>
+    </class>
+</hibernate-mapping>

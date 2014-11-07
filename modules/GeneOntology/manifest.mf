@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.geneontology
+OpenIDE-Module-Layer: edu/uncc/genosets/geneontology/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/geneontology/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.2
+

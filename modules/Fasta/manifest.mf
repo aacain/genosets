@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.fasta
+OpenIDE-Module-Layer: edu/uncc/genosets/fasta/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/fasta/Bundle.properties
+OpenIDE-Module-Requires: org.openide.windows.WindowManager
+OpenIDE-Module-Specification-Version: 1.4
+
