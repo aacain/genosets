@@ -3,40 +3,23 @@
     <type>org.netbeans.modules.apisupport.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
-            <code-name-base>edu.uncc.genosets.gffloader</code-name-base>
+            <code-name-base>edu.uncc.genosets.rast</code-name-base>
             <suite-component/>
             <module-dependencies>
-                <dependency>
-                    <code-name-base>edu.uncc.genosets.bioio</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <specification-version>1.1</specification-version>
-                    </run-dependency>
-                </dependency>
-                <dependency>
-                    <code-name-base>edu.uncc.genosets.biojava</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <specification-version>1.0</specification-version>
-                    </run-dependency>
-                </dependency>
                 <dependency>
                     <code-name-base>edu.uncc.genosets.datamanager</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>1.2.3</specification-version>
+                        <specification-version>1.7</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
-                    <code-name-base>org.netbeans.modules.javahelp</code-name-base>
+                    <code-name-base>edu.uncc.genosets.gffloader</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <release-version>1</release-version>
-                        <specification-version>2.22.1</specification-version>
+                        <specification-version>1.2</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -44,7 +27,7 @@
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>7.31.1</specification-version>
+                        <specification-version>7.55.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -52,7 +35,7 @@
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>7.20.1</specification-version>
+                        <specification-version>7.28.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -60,7 +43,7 @@
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>6.35.1</specification-version>
+                        <specification-version>6.50.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -68,15 +51,7 @@
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>7.53.2</specification-version>
-                    </run-dependency>
-                </dependency>
-                <dependency>
-                    <code-name-base>org.openide.loaders</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <specification-version>7.32.1</specification-version>
+                        <specification-version>8.5.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -84,7 +59,7 @@
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>7.21.1</specification-version>
+                        <specification-version>7.33.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -92,21 +67,11 @@
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>8.15.1</specification-version>
-                    </run-dependency>
-                </dependency>
-                <dependency>
-                    <code-name-base>org.openide.util.lookup</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <specification-version>8.8.1</specification-version>
+                        <specification-version>8.29.1</specification-version>
                     </run-dependency>
                 </dependency>
             </module-dependencies>
-            <public-packages>
-                <package>edu.uncc.genosets.gffloader</package>
-            </public-packages>
+            <public-packages/>
         </data>
     </configuration>
 </project>

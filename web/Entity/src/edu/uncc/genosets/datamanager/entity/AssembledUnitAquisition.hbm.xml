@@ -30,8 +30,8 @@
         <many-to-one name="organism" entity-name="Organism" fetch="select">
             <column name="Organism"  sql-type="int unsigned" />
         </many-to-one>
-        <many-to-one name="molecularSequence" entity-name="MolecularSequence" fetch="select">
-            <column name="MolecularSequence"  sql-type="int unsigned" />
+        <many-to-one name="molecularSequence" entity-name="MolecularSequence" fetch="select" insert="false" update="false">
+            <column name="AssembledUnit"  sql-type="int unsigned" />
         </many-to-one>
         <many-to-one name="annotationMethod" entity-name="AnnotationMethod" fetch="select">
             <column name="AnnotationMethod"  sql-type="int unsigned" />

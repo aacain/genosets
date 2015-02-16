@@ -157,11 +157,11 @@
                 <package>edu.uncc.genosets.datamanager.dimension2</package>
                 <package>edu.uncc.genosets.datamanager.embl</package>
                 <package>edu.uncc.genosets.datamanager.entity</package>
-                <package>edu.uncc.genosets.datamanager.entity.node</package>
                 <package>edu.uncc.genosets.datamanager.exceptions</package>
                 <package>edu.uncc.genosets.datamanager.fasta</package>
                 <package>edu.uncc.genosets.datamanager.hibernate</package>
                 <package>edu.uncc.genosets.datamanager.persister</package>
+                <package>edu.uncc.genosets.datamanager.rast</package>
                 <package>edu.uncc.genosets.datamanager.taxonomy</package>
                 <package>edu.uncc.genosets.datamanager.toolbar</package>
                 <package>edu.uncc.genosets.datamanager.wizards</package>

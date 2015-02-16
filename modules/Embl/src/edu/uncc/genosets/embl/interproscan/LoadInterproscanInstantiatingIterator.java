@@ -2,14 +2,16 @@
  * 
  * 
  */
-package edu.uncc.genosets.geneontology;
+package edu.uncc.genosets.embl.interproscan;
 
 import edu.uncc.genosets.geneontology.obo.OboWizardPanel;
 import bioio.GoAnnotationFileFormat;
 import edu.uncc.genosets.bioio.FileSelectorWizardPanel1;
 import edu.uncc.genosets.datamanager.entity.AnnotationMethod;
+import edu.uncc.genosets.datamanager.entity.Location;
 import edu.uncc.genosets.datamanager.wizards.MethodWizardPanel;
 import edu.uncc.genosets.geneontology.api.GeneOntologyGafImpl;
+import edu.uncc.genosets.geneontology.api.GeneOntologySimpleImpl;
 import edu.uncc.genosets.geneontology.obo.OboDataObject;
 import edu.uncc.genosets.taskmanager.TaskLog;
 import edu.uncc.genosets.taskmanager.TaskLogFactory;
@@ -28,12 +30,15 @@ import org.netbeans.api.progress.ProgressUtils;
 import org.openide.WizardDescriptor;
 import org.openide.WizardDescriptor.InstantiatingIterator;
 import org.openide.util.Exceptions;
+import org.openide.util.NbBundle;
 
 /**
  *
  * @author aacain
  */
-public class LoadGafInstantiatingIterator implements InstantiatingIterator {
+
+@NbBundle.Messages("CTL_ActionLoadInterproscan=InterProScan GO annotations")
+public class LoadInterproscanInstantiatingIterator implements InstantiatingIterator {
 
     private int index;
     private WizardDescriptor.Panel[] panels;
@@ -45,7 +50,7 @@ public class LoadGafInstantiatingIterator implements InstantiatingIterator {
      */
     private WizardDescriptor.Panel[] getPanels() {
         if (panels == null) {
-            String[] exts = {"gaf", "GAF"};
+            String[] exts = {"tsv", "txt"};
             //set AnnotationMethod constants
             AnnotationMethod method = new AnnotationMethod();
             method.setMethodCategory("GO Annotation");
@@ -56,8 +61,6 @@ public class LoadGafInstantiatingIterator implements InstantiatingIterator {
             panels = new WizardDescriptor.Panel[]{
                 new FileSelectorWizardPanel1(exts),
                 new OboWizardPanel(),
-                //new OboSelectWizardPanel(Collections.singleton("FULL"), Boolean.TRUE),
-                new SelectGafVersionWizardPanel1(),
                 new MethodWizardPanel(method)
             };
             String[] steps = createSteps();
@@ -100,8 +103,7 @@ public class LoadGafInstantiatingIterator implements InstantiatingIterator {
         //final OboDataObject obodao = (OboDataObject) this.wizard.getProperty(OboSelectWizardPanel.PROP_OBO_DATAOBJECT);
         final OboDataObject oboFile = (OboDataObject)this.wizard.getProperty(OboWizardPanel.PROP_OBO);
         Set<File> files = (Set<File>) this.wizard.getProperty(FileSelectorWizardPanel1.PROP_FILES);
-        Integer format = (Integer) this.wizard.getProperty(SelectGafVersionWizardPanel1.PROP_GAF_VERSION);
-
+        
         //load the obo
         ProgressRunnable<edu.uncc.genosets.geneontology.api.GoTermPersister> runnable = new ProgressRunnable<edu.uncc.genosets.geneontology.api.GoTermPersister>() {
             @Override
@@ -112,7 +114,6 @@ public class LoadGafInstantiatingIterator implements InstantiatingIterator {
                     // Connect
                     InputStream is = oboFile.getFileObject(handle).getInputStream();
                     termPersister = edu.uncc.genosets.geneontology.api.GoTermPersister.instantiate(is, handle);
-                    //termPersister = edu.uncc.genosets.geneontology.api.GoTermPersister.instantiate(obodao.getPrimaryInputStream(), handle);
                 } catch (IOException ex) {
                     Exceptions.printStackTrace(ex);
                 }
@@ -121,23 +122,22 @@ public class LoadGafInstantiatingIterator implements InstantiatingIterator {
         };
         edu.uncc.genosets.geneontology.api.GoTermPersister termPersister = ProgressUtils.showProgressDialogAndRun(runnable, "Loading obo file", true);
 
-        //parse the gaf file
+        //parse the file
         for (File file : files) {
             try {
-                FileInputStream is = new FileInputStream(file);
-                GoAnnotationFileFormat gaf = GoAnnotationFileFormat.readAnnotations(is, format);
+                Interproscan ipscan = new Interproscan();
+                HashMap<Location, Set<String>> annotations = ipscan.getAnnotations(file);
                 if (termPersister != null) {
                     try {
                         AnnotationMethod myMethod = method.clone();
-                        GeneOntologyGafImpl go = new GeneOntologyGafImpl(termPersister, myMethod, gaf, file.getName());
-                        //GeneOntology go = edu.uncc.genosets.geneontology.api.GeneOntology.instantiate(termPersister, myMethod, gaf, file.getName());
+                        GeneOntologySimpleImpl go = new GeneOntologySimpleImpl(termPersister, myMethod, file.getName(), annotations);
                         TaskManagerFactory.getDefault().addPendingTask(go);
                     } catch (CloneNotSupportedException ex) {
                         Exceptions.printStackTrace(ex);
                     }
                 }
             } catch (IOException ex) {
-                TaskLogFactory.getDefault().log("Could not load Go Ontology annotations for " + file.getName(), LoadGafInstantiatingIterator.class.getName(), ex.getMessage(), TaskLog.ERROR, new Date());
+                TaskLogFactory.getDefault().log("Could not load Go Ontology annotations for " + file.getName(), this.getClass().getName(), ex.getMessage(), TaskLog.ERROR, new Date());
                 Exceptions.printStackTrace(ex);
             }
         }

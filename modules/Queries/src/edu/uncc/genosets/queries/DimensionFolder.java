@@ -28,6 +28,9 @@ public class DimensionFolder extends AbstractDimensionObject {
 
     @Override
     public DimensionObject getChild(String name) {
+        if(name == null){
+            return null;
+        }
         String[] path = name.split("/");
         DimensionFolder current = this;
         for (String string : path) {

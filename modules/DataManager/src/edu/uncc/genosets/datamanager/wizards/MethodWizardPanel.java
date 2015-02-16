@@ -18,6 +18,7 @@ public class MethodWizardPanel implements WizardDescriptor.Panel<WizardDescripto
     private final AnnotationMethod methodConstants;
     private final ChangeSupport cs = new ChangeSupport(this);
     public static final String PROP_AnnotationMethod = "PROP_AnnotationMethod";
+    private String propertyName;
 
     /**
      * The method constants to be used in the panel. All values in the
@@ -67,7 +68,7 @@ public class MethodWizardPanel implements WizardDescriptor.Panel<WizardDescripto
     }
 
     public boolean isValid() {
-        if(component.getNameField() == null || component.getNameField().getText().trim().length() == 0){
+        if (component.getNameField() == null || component.getNameField().getText().trim().length() == 0) {
             this.wd.putProperty(WizardDescriptor.PROP_WARNING_MESSAGE, "Enter a valid name.");
             return false;
         }
@@ -110,7 +111,15 @@ public class MethodWizardPanel implements WizardDescriptor.Panel<WizardDescripto
         method.setMethodName(component.getNameField().getText());
         method.setMethodDescription(component.getDescriptionArea().getText());
         method.setRunDate(new Date());
-        wd.putProperty(MethodWizardPanel.PROP_AnnotationMethod, method);
+        if (propertyName != null) {
+            wd.putProperty(propertyName, method);
+        }else{
+            wd.putProperty(MethodWizardPanel.PROP_AnnotationMethod, method);
+        }
+    }
+
+    public void setMethodPropertyName(String propertyName) {
+        this.propertyName = propertyName;
     }
 
     @Override

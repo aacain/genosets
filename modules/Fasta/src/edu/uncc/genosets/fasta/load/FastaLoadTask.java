@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import org.openide.util.Exceptions;
@@ -30,12 +31,22 @@ public class FastaLoadTask extends AbstractTask {
     private Organism org;
     private final AnnotationMethod method;
     private final File file;
+    private HashMap<String, AssembledUnit> fastaMap;
 
     public FastaLoadTask(Organism org, AnnotationMethod method, File file) {
         super("Loading fasta " + method.getMethodName());
         this.org = org;
         this.method = method;
         this.file = file;
+        this.fastaMap = new HashMap<String, AssembledUnit>();
+    }
+    
+    /**
+     * Gets the hashmap mappings from original id to AssembledUnit
+     * @return 
+     */
+    public HashMap<String, AssembledUnit> getFastaMap(){
+        return fastaMap;
     }
 
     @Override
@@ -53,6 +64,8 @@ public class FastaLoadTask extends AbstractTask {
                 ass.setAssembledUnitName(f.getId());
                 ass.setAccessionVersion(f.getId());
                 ass.setSequenceLength(f.getSequence().length());
+                //add to map
+                fastaMap.put(f.getId(), ass);
                 AssembledUnitAquisition fact = new AssembledUnitAquisition();
                 persister.setFact(fact);
                 persister.setFactEntityName(AssembledUnitAquisition.DEFAULT_NAME);

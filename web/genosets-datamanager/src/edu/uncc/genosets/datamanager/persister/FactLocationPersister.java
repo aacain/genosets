@@ -74,6 +74,13 @@ public class FactLocationPersister extends FactPersister<FactLocation> {
     public void setSequence(String sequence) {
         this.sequence = sequence;
     }
+    
+    public void setEntities(Organism organism, AssembledUnit assUnit, Feature feature, Location location){
+        setOrganism(organism);
+        setAssUnit(assUnit);
+        setFeature(feature);
+        setLocation(location);
+    }
 
     @Override
     public void persist(StatelessSession session) {

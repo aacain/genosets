@@ -38,6 +38,12 @@ public class FactAssembledUnitPersister extends FactPersister<AssembledUnitAquis
         return new FactAssembledUnitPersister();
     }
     
+    public void setEntities(Organism organism, AssembledUnit assUnit, String sequence){
+        this.organism = organism;
+        this.assUnit = assUnit;
+        this.sequence = sequence;
+    }
+    
     @Override
     public void persist(StatelessSession session) {
         if (method.getAnnotationMethodId() == null) {
@@ -81,6 +87,10 @@ public class FactAssembledUnitPersister extends FactPersister<AssembledUnitAquis
         
         
         session.insert(factEntityName, fact);
+    }
+    
+    public String getSequence(){
+        return this.sequence;
     }
     
 }

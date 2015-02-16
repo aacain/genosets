@@ -23,6 +23,8 @@
         </exec>
     </target>
     
+    <property name="my.stupid.property" value="${mystupidproperty}"/>
+    
 <!--    <property name="app.icon.icns" value="${basedir}/genosets.icns"/>-->
 <!-- Override to change Mac application icon. -->
 <!--    <target name="build-mac" depends="suite.build-mac" description="Build Mac OS X Application">

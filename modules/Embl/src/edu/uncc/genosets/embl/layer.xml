@@ -31,6 +31,12 @@
                     <attr name="template" boolvalue="true"/>
                     <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/embl/goa/GOALoad.html"/>
                 </file>
+                <file name="InterProScan Annotations">
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.embl.interproscan.Bundle#CTL_ActionLoadInterproscan"/>
+                    <attr name="instantiatingIterator" newvalue="edu.uncc.genosets.embl.interproscan.LoadInterproscanInstantiatingIterator"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/embl/interproscan/InterproLoad.html"/>
+                </file>
             </folder>
         </folder>
     </folder>

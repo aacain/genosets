@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.uncc.genosets.rast
+OpenIDE-Module-Layer: edu/uncc/genosets/rast/layer.xml
+OpenIDE-Module-Localizing-Bundle: edu/uncc/genosets/rast/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

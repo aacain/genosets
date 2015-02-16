@@ -1,0 +1,15 @@
+mmodules
+mmodules/DataManager/nbproject
+mmodules/DataManager/release/modules/ext
+mmodules/DataManager/src/edu/uncc/genosets/datamanager/autoupdate
+mmodules/DataManager/src/edu/uncc/genosets/datamanager/wizards
+mmodules/Fasta/src/edu/uncc/genosets/fasta/load
+mmodules/GffLoader/nbproject
+mmodules/Queries/src/edu/uncc/genosets/queries
+amodules/Rast/src/edu/uncc/genosets/rast
+mmodules/nbproject
+mutility/Scripts/nbproject/private
+mweb/Entity/src/edu/uncc/genosets/datamanager/entity
+mweb/genosets-datamanager/nbproject/private
+mweb/genosets-datamanager/src
+mweb/genosets-datamanager/src/edu/uncc/genosets/datamanager/persister

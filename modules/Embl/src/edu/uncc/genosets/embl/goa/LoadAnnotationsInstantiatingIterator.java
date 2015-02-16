@@ -138,7 +138,8 @@ public class LoadAnnotationsInstantiatingIterator implements InstantiatingIterat
             for (Organism org : orgSet) {
                 try {
                     AnnotationMethod myMethod = method.clone();
-                    GeneOntology go = GeneOntology.instantiate(termPersister, myMethod, org);
+                    GeneOntologyGoaImpl go = new GeneOntologyGoaImpl(termPersister, myMethod, org);
+                    //GeneOntology go = GeneOntology.instantiate(termPersister, myMethod, org);
                     TaskManagerFactory.getDefault().addPendingTask(go);
                 } catch (CloneNotSupportedException ex) {
                     Exceptions.printStackTrace(ex);

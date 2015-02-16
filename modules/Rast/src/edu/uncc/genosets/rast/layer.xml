@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Templates">
+        <folder name="Load">
+            <folder name="RAST">
+                <file name="RAST">
+                    <attr name="displayName" bundlevalue="edu.uncc.genosets.rast.Bundle#LoadFiles/AnnotationFile"/>
+                    <attr name="instantiatingIterator" newvalue="edu.uncc.genosets.rast.RastLoadWizardIterator"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/edu/uncc/genosets/rast/WizardLoad.html"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>
